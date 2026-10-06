@@ -17,7 +17,7 @@
     "advisorName": "Yudi C.",
     "website": "digo.net.pe",
     "logo": {
-      "url": "http://localhost:4110/uploads/seed-digo-logo-256.png",
+      "url": "https://res.cloudinary.com/dks25ivcf/image/upload/v1791298289/digo-telecom/hogar/seed-digo-logo-256.png",
       "width": 256,
       "height": 256,
       "alt": "Logo de Digo Telecom"
@@ -41,5 +41,6 @@
       "icon": null
     }
   ],
-  "aboutPhotos": []
+  "aboutPhotos": [],
+  "coverageZones": []
 }

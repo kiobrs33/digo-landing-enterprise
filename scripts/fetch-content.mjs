@@ -11,7 +11,9 @@ import { fileURLToPath } from 'node:url'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const output = path.join(root, 'src/data/cms/site-content.json')
-const apiUrl = (process.env.CONTENT_API_URL ?? 'http://localhost:4110').replace(/\/$/, '')
+// En Vercel, sin CONTENT_API_URL, se usa la API de producción.
+const defaultApi = process.env.VERCEL ? 'https://cms-api.digo.net.pe' : 'http://localhost:4110'
+const apiUrl = (process.env.CONTENT_API_URL || defaultApi).replace(/\/$/, '')
 const url = `${apiUrl}/api/public/sites/empresas`
 const required = Boolean(process.env.VERCEL || process.env.CONTENT_REQUIRED)
 
