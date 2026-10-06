@@ -1,0 +1,953 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T05:57:26+00:00",
+  "title": "Design System: Digo Telecom",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-bg"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Lavado Orbital",
+        "canonical": "#f3f5fc",
+        "tonalRamp": [
+          "#0f1a3d",
+          "#1b2d6c",
+          "#27409a",
+          "#3254c9",
+          "#5f79d7",
+          "#8da0e3",
+          "#bcc7ee",
+          "#ebeefa"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-surface"
+      },
+      "surface-alt": {
+        "role": "neutral",
+        "displayName": "Lavado Profundo",
+        "canonical": "#e9eefb",
+        "tonalRamp": [
+          "#0c1a41",
+          "#152f72",
+          "#1e43a3",
+          "#2757d5",
+          "#557ce0",
+          "#87a2e9",
+          "#b8c8f2",
+          "#e9eefb"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-surface-alt"
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-panel"
+      },
+      "brand-navy": {
+        "role": "neutral",
+        "displayName": "Navy de Marca",
+        "canonical": "#041c7b",
+        "tonalRamp": [
+          "#02114a",
+          "#041e83",
+          "#062bbb",
+          "#0837f3",
+          "#3d63f9",
+          "#7590fb",
+          "#aebefc",
+          "#e6ebfe"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-heading / --color-primary"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#1a1f3d",
+        "tonalRamp": [
+          "#171b36",
+          "#28305f",
+          "#3a4587",
+          "#4b5ab0",
+          "#737ec3",
+          "#9ba4d5",
+          "#c4c9e6",
+          "#edeff7"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-text"
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Tinta Tenue",
+        "canonical": "#4f5780",
+        "tonalRamp": [
+          "#1d202f",
+          "#333953",
+          "#4a5177",
+          "#606a9b",
+          "#838bb3",
+          "#a7adc9",
+          "#cbcedf",
+          "#eff0f5"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-text-muted"
+      },
+      "pulse-magenta": {
+        "role": "primary",
+        "displayName": "Magenta Pulso",
+        "canonical": "#de087e",
+        "tonalRamp": [
+          "#4a032a",
+          "#82054a",
+          "#ba076a",
+          "#f3098a",
+          "#f83ea4",
+          "#fa76bf",
+          "#fcaed9",
+          "#fee6f3"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-accent"
+      },
+      "pulse-magenta-deep": {
+        "role": "primary",
+        "displayName": "Magenta Pulso Hondo",
+        "canonical": "#c0066e",
+        "tonalRamp": [
+          "#4a022a",
+          "#83044b",
+          "#bb066b",
+          "#f4088c",
+          "#f93da6",
+          "#fb75c0",
+          "#fcaeda",
+          "#fee6f4"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-accent-strong / --color-accent-text"
+      },
+      "star": {
+        "role": "secondary",
+        "displayName": "Azul Estelar Día",
+        "canonical": "#3552c4",
+        "tonalRamp": [
+          "#10193c",
+          "#1d2c6a",
+          "#294098",
+          "#3653c6",
+          "#6179d4",
+          "#8fa0e1",
+          "#bdc7ed",
+          "#ebeefa"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-star"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Filete",
+        "canonical": "rgba(4, 28, 123, 0.12)",
+        "tonalRamp": [
+          "#02114a",
+          "#041e83",
+          "#062bbb",
+          "#0837f3",
+          "#3d63f9",
+          "#7590fb",
+          "#aebefc",
+          "#e6ebfe"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-line"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Filete Fuerte",
+        "canonical": "rgba(4, 28, 123, 0.22)",
+        "tonalRamp": [
+          "#02114a",
+          "#041e83",
+          "#062bbb",
+          "#0837f3",
+          "#3d63f9",
+          "#7590fb",
+          "#aebefc",
+          "#e6ebfe"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-line-strong"
+      },
+      "tint": {
+        "role": "neutral",
+        "displayName": "Tinte",
+        "canonical": "rgba(4, 28, 123, 0.05)",
+        "tonalRamp": [
+          "#02114a",
+          "#041e83",
+          "#062bbb",
+          "#0837f3",
+          "#3d63f9",
+          "#7590fb",
+          "#aebefc",
+          "#e6ebfe"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-tint"
+      },
+      "tint-strong": {
+        "role": "neutral",
+        "displayName": "Tinte Fuerte",
+        "canonical": "rgba(4, 28, 123, 0.09)",
+        "tonalRamp": [
+          "#02114a",
+          "#041e83",
+          "#062bbb",
+          "#0837f3",
+          "#3d63f9",
+          "#7590fb",
+          "#aebefc",
+          "#e6ebfe"
+        ],
+        "mode": "day (:root)",
+        "cssVar": "--color-tint-strong"
+      },
+      "space-bg": {
+        "role": "neutral",
+        "displayName": "Espacio Profundo",
+        "canonical": "#030b33",
+        "tonalRamp": [
+          "#041048",
+          "#071b7f",
+          "#0b27b6",
+          "#0e33ed",
+          "#425ff4",
+          "#798ef7",
+          "#b0bcfa",
+          "#e7ebfe"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-bg"
+      },
+      "space-surface": {
+        "role": "neutral",
+        "displayName": "Superficie Orbital",
+        "canonical": "#061345",
+        "tonalRamp": [
+          "#061346",
+          "#0b227c",
+          "#0f31b2",
+          "#1440e7",
+          "#4769ef",
+          "#7c95f4",
+          "#b2c0f8",
+          "#e8ecfd"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-surface / --color-surface-alt"
+      },
+      "space-panel": {
+        "role": "neutral",
+        "displayName": "Panel Nebular",
+        "canonical": "#0b1d63",
+        "tonalRamp": [
+          "#081445",
+          "#0d2479",
+          "#1333ae",
+          "#1942e2",
+          "#4b6beb",
+          "#7f96f1",
+          "#b4c1f7",
+          "#e8ecfc"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-panel"
+      },
+      "space-heading": {
+        "role": "neutral",
+        "displayName": "Blanco Estelar",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-heading"
+      },
+      "space-text": {
+        "role": "neutral",
+        "displayName": "Luz Estelar",
+        "canonical": "#eef2ff",
+        "tonalRamp": [
+          "#00124c",
+          "#002087",
+          "#002dc1",
+          "#003bfb",
+          "#3766ff",
+          "#7192ff",
+          "#abbfff",
+          "#e6ecff"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-text"
+      },
+      "space-text-muted": {
+        "role": "neutral",
+        "displayName": "Nebulosa Tenue",
+        "canonical": "#b4c0e8",
+        "tonalRamp": [
+          "#121b3b",
+          "#203067",
+          "#2d4594",
+          "#3b5ac0",
+          "#667ed0",
+          "#92a4de",
+          "#bfc9eb",
+          "#ebeff9"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-text-muted"
+      },
+      "space-accent-text": {
+        "role": "primary",
+        "displayName": "Magenta Legible Nocturno",
+        "canonical": "#ff5cb4",
+        "tonalRamp": [
+          "#4c0029",
+          "#870049",
+          "#c10068",
+          "#fb0088",
+          "#ff37a3",
+          "#ff71be",
+          "#ffabd8",
+          "#ffe6f3"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-accent-text"
+      },
+      "space-star": {
+        "role": "secondary",
+        "displayName": "Azul Estelar Noche",
+        "canonical": "#8fb4ff",
+        "tonalRamp": [
+          "#00194c",
+          "#002d87",
+          "#0040c1",
+          "#0053fb",
+          "#3779ff",
+          "#71a0ff",
+          "#abc7ff",
+          "#e6eeff"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-star"
+      },
+      "space-line": {
+        "role": "neutral",
+        "displayName": "Filete Estelar",
+        "canonical": "rgba(143, 180, 255, 0.18)",
+        "tonalRamp": [
+          "#00194c",
+          "#002d87",
+          "#0040c1",
+          "#0053fb",
+          "#3779ff",
+          "#71a0ff",
+          "#abc7ff",
+          "#e6eeff"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-line"
+      },
+      "space-line-strong": {
+        "role": "neutral",
+        "displayName": "Filete Estelar Fuerte",
+        "canonical": "rgba(143, 180, 255, 0.34)",
+        "tonalRamp": [
+          "#00194c",
+          "#002d87",
+          "#0040c1",
+          "#0053fb",
+          "#3779ff",
+          "#71a0ff",
+          "#abc7ff",
+          "#e6eeff"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-line-strong"
+      },
+      "space-tint": {
+        "role": "neutral",
+        "displayName": "Tinte Estelar",
+        "canonical": "rgba(143, 180, 255, 0.08)",
+        "tonalRamp": [
+          "#00194c",
+          "#002d87",
+          "#0040c1",
+          "#0053fb",
+          "#3779ff",
+          "#71a0ff",
+          "#abc7ff",
+          "#e6eeff"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-tint"
+      },
+      "space-tint-strong": {
+        "role": "neutral",
+        "displayName": "Tinte Estelar Fuerte",
+        "canonical": "rgba(143, 180, 255, 0.14)",
+        "tonalRamp": [
+          "#00194c",
+          "#002d87",
+          "#0040c1",
+          "#0053fb",
+          "#3779ff",
+          "#71a0ff",
+          "#abc7ff",
+          "#e6eeff"
+        ],
+        "mode": "space (.theme-space)",
+        "cssVar": "--color-tint-strong"
+      },
+      "space-text-soft": {
+        "role": "neutral",
+        "displayName": "Blanco Suave",
+        "canonical": "rgba(255, 255, 255, 0.88)",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ]
+      },
+      "space-text-faint": {
+        "role": "neutral",
+        "displayName": "Blanco Tenue",
+        "canonical": "rgba(255, 255, 255, 0.75)",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ]
+      },
+      "starfield-white": {
+        "role": "neutral",
+        "displayName": "Estrella Blanca",
+        "canonical": "rgba(255, 255, 255, 0.75)",
+        "tonalRamp": [
+          "#262626",
+          "#434343",
+          "#616161",
+          "#7e7e7e",
+          "#9b9b9b",
+          "#b8b8b8",
+          "#d5d5d5",
+          "#f2f2f2"
+        ]
+      },
+      "starfield-blue": {
+        "role": "neutral",
+        "displayName": "Estrella Azul",
+        "canonical": "rgba(143, 180, 255, 0.8)",
+        "tonalRamp": [
+          "#00194c",
+          "#002d87",
+          "#0040c1",
+          "#0053fb",
+          "#3779ff",
+          "#71a0ff",
+          "#abc7ff",
+          "#e6eeff"
+        ]
+      },
+      "hero-core": {
+        "role": "neutral",
+        "displayName": "Núcleo del Hero",
+        "canonical": "rgba(4, 28, 123, 0.9)",
+        "tonalRamp": [
+          "#02114a",
+          "#041e83",
+          "#062bbb",
+          "#0837f3",
+          "#3d63f9",
+          "#7590fb",
+          "#aebefc",
+          "#e6ebfe"
+        ]
+      },
+      "void-veil": {
+        "role": "neutral",
+        "displayName": "Velo del Vacío",
+        "canonical": "rgba(3, 11, 51, 0.7)",
+        "tonalRamp": [
+          "#041048",
+          "#071b7f",
+          "#0b27b6",
+          "#0e33ed",
+          "#425ff4",
+          "#798ef7",
+          "#b0bcfa",
+          "#e7ebfe"
+        ]
+      },
+      "void-backdrop": {
+        "role": "neutral",
+        "displayName": "Telón",
+        "canonical": "rgba(1, 4, 20, 0.6)",
+        "tonalRamp": [
+          "#040f49",
+          "#061a80",
+          "#0925b8",
+          "#0c30ef",
+          "#405df5",
+          "#788cf8",
+          "#afbbfb",
+          "#e7eafe"
+        ]
+      },
+      "pulse-tail": {
+        "role": "primary",
+        "displayName": "Cola del Pulso",
+        "canonical": "rgba(255, 190, 225, 0.9)",
+        "tonalRamp": [
+          "#4c0029",
+          "#870049",
+          "#c10068",
+          "#fb0087",
+          "#ff37a3",
+          "#ff71bd",
+          "#ffabd8",
+          "#ffe6f3"
+        ]
+      },
+      "pulse-glow": {
+        "role": "primary",
+        "displayName": "Resplandor",
+        "canonical": "rgba(222, 8, 126, 0.16)",
+        "tonalRamp": [
+          "#4a032a",
+          "#82054a",
+          "#ba076a",
+          "#f3098a",
+          "#f83ea4",
+          "#fa76bf",
+          "#fcaed9",
+          "#fee6f3"
+        ]
+      },
+      "pulse-ring": {
+        "role": "primary",
+        "displayName": "Anillo de Foco",
+        "canonical": "rgba(222, 8, 126, 0.3)",
+        "tonalRamp": [
+          "#4a032a",
+          "#82054a",
+          "#ba076a",
+          "#f3098a",
+          "#f83ea4",
+          "#fa76bf",
+          "#fcaed9",
+          "#fee6f3"
+        ]
+      },
+      "pulse-halo": {
+        "role": "primary",
+        "displayName": "Halo",
+        "canonical": "rgba(222, 8, 126, 0.45)",
+        "tonalRamp": [
+          "#4a032a",
+          "#82054a",
+          "#ba076a",
+          "#f3098a",
+          "#f83ea4",
+          "#fa76bf",
+          "#fcaed9",
+          "#fee6f3"
+        ]
+      },
+      "whatsapp-green": {
+        "role": "tertiary",
+        "displayName": "Verde WhatsApp (tercero)",
+        "canonical": "#25d366",
+        "tonalRamp": [
+          "#0b411f",
+          "#147337",
+          "#1da44f",
+          "#26d667",
+          "#55e189",
+          "#86eaab",
+          "#b8f2ce",
+          "#e9fbf0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular de ambos heros."
+      },
+      "display-mobile": {
+        "displayName": "Display Mobile",
+        "purpose": "Titular de hero en ≤ 900 px."
+      },
+      "page-intro": {
+        "displayName": "Page Intro",
+        "purpose": "Titular de las vistas aparte, sobre banda de espacio."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de sección, navy de día."
+      },
+      "speed-numeral": {
+        "displayName": "Speed Numeral",
+        "purpose": "Cifra de Mbps en la cabecera del plan."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Precio del plan y título de medio de pago."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Paneles de servicios y aside legal."
+      },
+      "title-sm": {
+        "displayName": "Title Sm",
+        "purpose": "Títulos de beneficios."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "Palabra \"Digo\" en el header."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "Lead de heros e intros."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Etiquetas, navegación, nombre de plan, carriles."
+      }
+    },
+    "modes": [
+      {
+        "name": "day",
+        "selector": ":root",
+        "purpose": "Por defecto: contenido sobre superficies claras (color-scheme: light)."
+      },
+      {
+        "name": "space",
+        "selector": ".theme-space",
+        "purpose": "Redefine los mismos tokens con valores de espacio profundo (color-scheme: dark). Aplicado a header y cajón, heros de Hogar y Empresas, page intros, cabeceras de plan y footer."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 16px 36px -22px rgba(4, 28, 123, 0.35)",
+        "purpose": "--shadow-card de día: tarjetas de plan, FAQ, marco de promociones, panel de cobertura Empresas."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 22px 44px -22px rgba(4, 28, 123, 0.45)",
+        "purpose": "Hover de tarjetas de día."
+      },
+      {
+        "name": "space-card-rest",
+        "value": "0 18px 40px -24px rgba(0, 0, 0, 0.7)",
+        "purpose": "--shadow-card dentro de .theme-space."
+      },
+      {
+        "name": "space-card-hover",
+        "value": "0 24px 48px -24px rgba(0, 0, 0, 0.8)",
+        "purpose": "--shadow-card-hover dentro de .theme-space."
+      },
+      {
+        "name": "key-travel",
+        "value": "0 3px 0 rgba(0, 0, 0, 0.45) / marcada 0 1px 0",
+        "purpose": "Recorrido físico de las teclas de velocidad."
+      },
+      {
+        "name": "pulse-focus",
+        "value": "0 0 0 3px rgba(222, 8, 126, 0.3)",
+        "purpose": "Foco de campos de formulario."
+      },
+      {
+        "name": "drawer-drop",
+        "value": "0 12px 32px rgba(0, 0, 0, 0.36)",
+        "purpose": "Cajón de navegación móvil."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-state",
+        "value": "0.2s ease / ease-out",
+        "purpose": "Cambios de color, borde y ancho (botones, dots, teclas, tarjetas)."
+      },
+      {
+        "name": "key-travel",
+        "value": "transform 0.12s ease-out",
+        "purpose": "Hundimiento de 2 px de la tecla de velocidad marcada."
+      },
+      {
+        "name": "card-lift",
+        "value": "translateY(-3px), 0.2s ease-out",
+        "purpose": "Hover de la tarjeta de plan."
+      },
+      {
+        "name": "fiber-seam",
+        "value": "7s linear infinite (9s reverse en uniones alternas)",
+        "purpose": "Pulso magenta que recorre la costura entre secciones de Hogar."
+      },
+      {
+        "name": "footer-pulse",
+        "value": "fiber-seam 8s linear infinite",
+        "purpose": "Pulso sobre el borde superior del footer."
+      },
+      {
+        "name": "galaxy-pulse",
+        "value": "0.03 + speed*0.13 vueltas/s (≈0.05 a 500 Mbps, ≈0.16 a 1000 Mbps); Empresas speed=1",
+        "purpose": "Velocidad de los pulsos WebGL según el plan elegido."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce)",
+        "purpose": "Detiene costuras, pulsos y giro; la galaxia dibuja un cuadro quieto."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "480px"
+      },
+      {
+        "name": "sm",
+        "value": "560px"
+      },
+      {
+        "name": "carousel-1",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "900px"
+      },
+      {
+        "name": "empresas-process",
+        "value": "1000px"
+      },
+      {
+        "name": "nav",
+        "value": "1024px"
+      },
+      {
+        "name": "nav-compact",
+        "value": "1240px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal en ambos modos: magenta con texto blanco.",
+      "html": "<button class=\"ds-btn-primary\">Consultar cobertura</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:999px;border:2px solid #de087e;background:#de087e;color:#fff;font:600 .95rem 'Archivo Variable',system-ui,sans-serif;cursor:pointer;transition:background-color .2s ease,border-color .2s ease,transform .2s ease}.ds-btn-primary:hover{background:#c0066e;border-color:#c0066e}.ds-btn-primary:focus-visible{outline:2px solid #de087e;outline-offset:2px}.ds-btn-primary:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acompaña al primario; lee tokens (blanco/navy de día, Panel Nebular/blanco en espacio).",
+      "html": "<button class=\"ds-btn-secondary\">Hablar con un asesor</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;padding:.75rem 1.25rem;border-radius:999px;border:2px solid rgba(4,28,123,.22);background:#fff;color:#041c7b;font:600 .95rem 'Archivo Variable',system-ui,sans-serif;cursor:pointer;transition:background-color .2s ease,border-color .2s ease}.ds-btn-secondary:hover{background:#f3f5fc;border-color:#3552c4}.ds-btn-secondary:focus-visible{outline:2px solid #de087e;outline-offset:2px}"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Banda de espacio de 4rem: marca D magenta + wordmark, enlaces sin cápsula, activo con subrayado magenta, CTA pequeño.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-logo\" href=\"#\"><span class=\"ds-logo-mark\">D</span><span class=\"ds-logo-word\">Digo</span></a><nav><a href=\"#\" class=\"ds-nav-link is-active\">Planes</a><a href=\"#\" class=\"ds-nav-link\">Servicios</a><a href=\"#\" class=\"ds-nav-link\">Cobertura</a></nav><a class=\"ds-btn-sm\" href=\"#\">Para Empresas</a></header>",
+      "css": ".ds-header{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4rem;padding:0 1rem;background:#030b33;border-bottom:1px solid rgba(143,180,255,.18);font-family:'Archivo Variable',system-ui,sans-serif}.ds-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}.ds-logo-mark{display:grid;place-items:center;width:2rem;height:2rem;border-radius:8px;background:#de087e;color:#fff;font-weight:800}.ds-logo-word{font-stretch:125%;font-size:1.25rem;font-weight:800;letter-spacing:-.02em;color:#fff}.ds-nav-link{position:relative;padding:.4rem .7rem;border-radius:6px;font-size:.875rem;font-weight:500;color:#b4c0e8;text-decoration:none;transition:color .25s ease,background-color .25s ease}.ds-nav-link:hover{color:#fff;background:rgba(143,180,255,.08)}.ds-nav-link:focus-visible{outline:2px solid #8fb4ff;outline-offset:2px}.ds-nav-link.is-active{color:#fff;font-weight:600}.ds-nav-link.is-active::after{content:'';position:absolute;left:.7rem;right:.7rem;bottom:-.1rem;height:2px;border-radius:2px;background:#de087e}.ds-btn-sm{padding:.45rem 1rem;border-radius:999px;background:#de087e;color:#fff;font-size:.875rem;font-weight:600;text-decoration:none}.ds-btn-sm:hover{background:#c0066e}"
+    },
+    {
+      "name": "Selector de velocidad",
+      "kind": "custom",
+      "refersTo": "speed-switch-option",
+      "description": "Teclas con recorrido sobre el hero; la marcada se hunde 2 px en magenta.",
+      "html": "<div class=\"ds-speed\"><label><input type=\"radio\" name=\"ds-s\"><span>500</span></label><label><input type=\"radio\" name=\"ds-s\"><span>800</span></label><label><input type=\"radio\" name=\"ds-s\" checked><span>1000</span></label></div>",
+      "css": ".ds-speed{display:inline-flex;gap:.35rem;padding:.35rem;border:1px solid rgba(143,180,255,.18);border-radius:999px;background:rgba(3,11,51,.7)}.ds-speed label{position:relative;cursor:pointer}.ds-speed input{position:absolute;inset:0;opacity:0;cursor:pointer}.ds-speed span{display:grid;place-items:center;min-width:5.5rem;min-height:2.75rem;padding-inline:1rem;border-radius:999px;font:750 1.125rem 'Archivo Variable',system-ui,sans-serif;font-stretch:125%;color:#b4c0e8;box-shadow:0 3px 0 rgba(0,0,0,.45);transition:background-color .2s ease-out,color .2s ease-out,transform .12s ease-out,box-shadow .12s ease-out}.ds-speed label:hover span{color:#fff}.ds-speed input:checked+span{background:#de087e;color:#fff;transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.45)}.ds-speed input:focus-visible+span{outline:2px solid #8fb4ff;outline-offset:2px}"
+    },
+    {
+      "name": "Tarjeta de plan",
+      "kind": "card",
+      "refersTo": "plan-card",
+      "description": "Cabecera de espacio con cifra y carriles de fibra (ancho = Mbps/1000); cuerpo claro con precio, promo y rasgos.",
+      "html": "<article class=\"ds-plan\"><div class=\"ds-plan-head\"><p class=\"ds-plan-name\">Fibra Digo</p><p class=\"ds-plan-speed\">800<span>Mbps</span></p><div class=\"ds-lane\"><span>Bajada</span><i><b style=\"width:80%\"></b></i></div><div class=\"ds-lane\"><span>Subida</span><i><b style=\"width:80%\"></b></i></div></div><div class=\"ds-plan-body\"><p class=\"ds-plan-price\">S/ 69<span>al mes</span></p><p class=\"ds-plan-promo\">Promo flash: primeros 3 meses</p><ul><li>Fibra 100% simétrica</li><li>Soporte 24/7</li></ul><button class=\"ds-btn-primary-full\">Lo quiero</button></div></article>",
+      "css": ".ds-plan{max-width:22rem;overflow:hidden;border:1px solid rgba(4,28,123,.22);border-radius:16px;background:#fff;box-shadow:0 16px 36px -22px rgba(4,28,123,.35);font-family:'Archivo Variable',system-ui,sans-serif;transition:box-shadow .2s ease-out,transform .2s ease-out}.ds-plan:hover{transform:translateY(-3px);box-shadow:0 22px 44px -22px rgba(4,28,123,.45)}.ds-plan-head{padding:1.75rem 1.5rem 1.5rem;background:#030b33 radial-gradient(1px 1px at 23px 41px,rgba(255,255,255,.75),transparent) 0 0/220px 220px;border-bottom:1px solid rgba(143,180,255,.18)}.ds-plan-name{margin:0;font-size:.875rem;font-weight:600;color:#b4c0e8}.ds-plan-speed{margin:.35rem 0 0;font-stretch:125%;font-size:3.5rem;font-weight:800;line-height:1;letter-spacing:-.03em;color:#fff}.ds-plan-speed span{margin-left:.3rem;font-size:1rem;font-weight:600;letter-spacing:0;color:#b4c0e8}.ds-lane{display:grid;grid-template-columns:3.75rem 1fr;align-items:center;gap:.75rem;margin-top:.5rem;font-size:.875rem;color:#b4c0e8}.ds-lane i{display:block;height:4px;border-radius:4px;background:rgba(143,180,255,.14);overflow:hidden}.ds-lane b{display:block;height:100%;background:linear-gradient(90deg,#8fb4ff,#fff 80%,#de087e)}.ds-plan-body{padding:1.5rem}.ds-plan-price{margin:0;display:flex;align-items:baseline;gap:.4rem;font-stretch:125%;font-size:2rem;font-weight:800;color:#041c7b}.ds-plan-price span{font-stretch:100%;font-size:.875rem;font-weight:500;color:#4f5780}.ds-plan-promo{margin:.35rem 0 0;font-size:.875rem;font-weight:600;color:#c0066e}.ds-plan ul{margin:1.25rem 0 0;padding:1.25rem 0 0;list-style:none;border-top:1px solid rgba(4,28,123,.12);color:#1a1f3d;font-size:.925rem}.ds-plan li::before{content:'✓ ';color:#c0066e}.ds-btn-primary-full{width:100%;margin-top:1.5rem;padding:.85rem;border:0;border-radius:999px;background:#de087e;color:#fff;font-weight:600;cursor:pointer}.ds-btn-primary-full:hover{background:#c0066e}.ds-btn-primary-full:focus-visible{outline:2px solid #de087e;outline-offset:2px}"
+    },
+    {
+      "name": "Campo de formulario",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo claro con filete navy; foco con borde y halo magenta.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-n\">Nombre completo</label><input id=\"ds-n\" placeholder=\"Tu nombre\"></div>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:.35rem;font-family:'Archivo Variable',system-ui,sans-serif}.ds-field label{font-size:.875rem;font-weight:600;color:#041c7b}.ds-field input{padding:.75rem .85rem;border:1px solid rgba(4,28,123,.22);border-radius:8px;background:#fff;color:#1a1f3d;caret-color:#c0066e;font:inherit}.ds-field input::placeholder{color:#4f5780;opacity:.75}.ds-field input:focus{outline:none;border-color:#de087e;box-shadow:0 0 0 3px rgba(222,8,126,.3)}"
+    },
+    {
+      "name": "Secuencia de fibra",
+      "kind": "custom",
+      "refersTo": "fiber-sequence",
+      "description": "Nodos unidos por una fibra magenta → azul estelar; el primer nodo va relleno.",
+      "html": "<ol class=\"ds-seq\"><li><h3>Fibra 100% simétrica</h3></li><li><h3>Instalación gratis</h3></li><li><h3>Router WiFi</h3></li></ol>",
+      "css": ".ds-seq{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:0;padding:2.25rem 0 0;list-style:none;font-family:'Archivo Variable',system-ui,sans-serif}.ds-seq::before{content:'';position:absolute;top:.45rem;left:0;right:0;height:2px;background:linear-gradient(90deg,#de087e,#3552c4 60%,transparent)}.ds-seq li{position:relative}.ds-seq li::before{content:'';position:absolute;top:-2.25rem;left:0;width:1rem;height:1rem;border-radius:50%;background:#fff;border:2px solid #3552c4}.ds-seq li:first-child::before{background:#de087e;border-color:#de087e}.ds-seq h3{margin:0;font-stretch:125%;font-size:1.25rem;font-weight:750;color:#041c7b}"
+    },
+    {
+      "name": "Fila de servicio Empresas",
+      "kind": "custom",
+      "refersTo": "empresas-service-row",
+      "description": "Lista a dos columnas: icono circular azul estelar, título y descripción, divisor inferior.",
+      "html": "<ul class=\"ds-rows\"><li><span class=\"ds-ico\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0\"/><circle cx=\"12\" cy=\"19.5\" r=\"1\"/></svg></span><h3>IP Tránsito para ISP</h3><p>Salida a internet mayorista para proveedores locales.</p></li><li><span class=\"ds-ico\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"4\" y=\"10\" width=\"16\" height=\"10\" rx=\"2\"/><path d=\"M8 10V7a4 4 0 0 1 8 0v3\"/></svg></span><h3>Servicios dedicados</h3><p>Enlaces simétricos de uso exclusivo.</p></li></ul>",
+      "css": ".ds-rows{display:grid;grid-template-columns:repeat(2,1fr);column-gap:3rem;margin:0;padding:0;list-style:none;border-top:1px solid rgba(4,28,123,.22);font-family:'Archivo Variable',system-ui,sans-serif}.ds-rows li{display:grid;grid-template-columns:2.75rem 1fr;column-gap:1rem;padding-block:1.35rem;border-bottom:1px solid rgba(4,28,123,.12)}.ds-ico{grid-row:span 2;display:grid;place-items:center;width:2.75rem;height:2.75rem;border:1px solid rgba(4,28,123,.22);border-radius:50%;color:#3552c4}.ds-rows h3{margin:0;font-size:1.05rem;font-weight:700;color:#041c7b}.ds-rows p{margin:.3rem 0 0;font-size:.925rem;line-height:1.55;color:#4f5780}"
+    },
+    {
+      "name": "Indicadores de carrusel",
+      "kind": "custom",
+      "refersTo": "carousel-dots",
+      "description": "Área táctil de 24 px; punto de 8 px en tinte fuerte, el actual se estira a 20 px en magenta.",
+      "html": "<div class=\"ds-dots\"><button aria-current=\"true\" aria-label=\"1\"></button><button aria-label=\"2\"></button><button aria-label=\"3\"></button></div>",
+      "css": ".ds-dots{display:flex}.ds-dots button{display:grid;place-items:center;width:1.5rem;height:1.5rem;padding:0;border:0;background:none;cursor:pointer}.ds-dots button::before{content:'';width:.5rem;height:.5rem;border-radius:999px;background:rgba(4,28,123,.09);transition:width .2s ease-out,background-color .2s ease-out}.ds-dots button[aria-current='true']::before{width:1.25rem;background:#de087e}.ds-dots button:focus-visible{outline:2px solid #de087e;outline-offset:-2px;border-radius:999px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Galaxia de fibra, versión día",
+    "overview": "La red de Digo sigue dibujándose como una galaxia: fibras por donde viajan los datos como pulsos de luz magenta. Pero el mundo ya no es todo noche. El contenido (planes, promociones, beneficios, servicios, proceso, contacto, cobertura, FAQ, pagos, reclamaciones y todo Empresas) vive de día, sobre blanco y dos azules lavados muy tenues, con titulares en navy de marca. El espacio profundo se reserva para los marcos: el header, los heros de Hogar y Empresas, las introducciones de las vistas aparte, la cabecera de cada tarjeta de plan y el footer. Entrar en esas zonas es entrar en la galaxia; el resto de la página es la conversación a la luz del día.\n\nLa mecánica es un solo juego de tokens con dos modos. `:root` define la versión clara; la clase `.theme-space` redefine los mismos nombres (`--color-bg`, `--color-heading`, `--color-line`, `--color-star`…) con los valores de espacio profundo. Los componentes solo leen tokens, así que un botón secundario, un filete o un enlace se adaptan solos a la zona donde caen. El magenta es el único color que no cambia de papel en ninguno de los dos modos: pulso de datos y acción.\n\nLa densidad es media y la lectura calmada: secciones amplias, una sola familia (Archivo Variable) con titulares expandidos al 125 %, y una galaxia WebGL girando detrás de ambos heros. Lo local de Arequipa vive en el texto y el mapa, no en la imagen. Se rechazan el hero de operador con gradiente y tres tarjetas iguales, y el fondo cálido del mundo anterior \"Sillar Arequipeño\".",
+    "keyCharacteristics": [
+      "Dos modos de un mismo sistema: claro por defecto, `.theme-space` para los marcos (header, heros, intros, cabecera de plan, footer).",
+      "Una sola familia, Archivo Variable: expandida 125 % para titulares y cifras, normal para lectura.",
+      "Magenta = pulso y acción en ambos modos; azul estelar = estructura (fibras, nodos, foco).",
+      "Filetes de navy translúcido de día y de azul estelar translúcido de noche; nunca grises.",
+      "Movimiento como tráfico de datos (galaxia, costuras, pulso del footer), siempre desactivado con `prefers-reduced-motion`."
+    ],
+    "rules": [
+      {
+        "name": "The Two Modes Rule",
+        "body": "Un componente nunca escribe un color literal de fondo, texto o línea: lee el token. El modo lo decide el contenedor con `.theme-space`. Si una pieza necesita verse \"de noche\", se envuelve en `.theme-space`; no se crean variantes oscuras sueltas.",
+        "section": "colors"
+      },
+      {
+        "name": "The Frame Rule",
+        "body": "El espacio profundo es marco, no contenido. Solo lo llevan header, heros, intros de vista aparte, cabecera de plan y footer. Las secciones de contenido son claras.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pulse Rule",
+        "body": "El magenta solo aparece donde hay dato en movimiento o una acción posible. Una superficie, un titular o una decoración estática nunca es magenta.",
+        "section": "colors"
+      },
+      {
+        "name": "The Legible Magenta Rule",
+        "body": "El texto magenta usa siempre `--color-accent-text` (Magenta Pulso Hondo de día, Magenta Legible Nocturno en espacio). El `#de087e` base solo rellena botones, puntos y nodos con texto blanco encima, o colorea iconos.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted Line Rule",
+        "body": "Toda línea es el navy de marca translúcido de día o el azul estelar translúcido de noche, a las opacidades de los tokens. Nada de grises ni negros.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Widths Rule",
+        "body": "Titulares, cifras de velocidad, precios, números de paso y la marca en ancho 125 %; todo lo que se lee de corrido en ancho normal. No se introduce una segunda familia.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Los rótulos van en caja normal y sin tracking extra; no hay antetítulos ni píldoras sobre los titulares, tampoco en Empresas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Soft Navy Shadow Rule",
+        "body": "De día, la sombra es navy de marca translúcido, nunca negro ni gris. Un solo nivel en reposo, uno en hover; no se apilan.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Light Is Elevation Rule",
+        "body": "En espacio, para acercar algo se aclara su navy, se refuerza su filete a azul estelar o se le pone luz detrás.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** leer siempre tokens y poner `.theme-space` en el contenedor cuando una pieza deba vivir en el espacio profundo.",
+      "**Do** reservar el espacio profundo para los marcos: header, heros, intros de vista aparte, cabecera de plan y footer; el contenido va claro.",
+      "**Do** usar Magenta Pulso solo para la acción principal, el estado activo y el pulso de datos; el texto magenta siempre con `--color-accent-text`.",
+      "**Do** dibujar líneas y tintes solo con `line`, `line-strong`, `tint`, `tint-strong` (o sus pares `space-*`).",
+      "**Do** titular con Archivo expandida (`font-stretch: 125%`, 750–800, tracking −0,02 a −0,03em) y leer con Archivo normal a 1rem / 1,6.",
+      "**Do** expresar secuencias (pasos, beneficios) como nodos unidos por una fibra, con el primer nodo en magenta.",
+      "**Do** comparar velocidades con carriles de fibra proporcionales a 1000 Mbps, siempre en pareja Bajada / Subida.",
+      "**Do** detener todo pulso, costura y giro con `prefers-reduced-motion`, dejando un cuadro quieto legible."
+    ],
+    "donts": [
+      "**Don't** pintar secciones de contenido completas en espacio profundo; la regla \"todo oscuro\" del mundo anterior ya no rige.",
+      "**Don't** usar el fondo cálido del mundo \"Sillar Arequipeño\" ni iconografía de Arequipa (sillar, Misti, catedral).",
+      "**Don't** construir el hero de operador con gradiente y tres tarjetas iguales.",
+      "**Don't** escribir texto pequeño en `#de087e`, ni sobre blanco ni sobre navy.",
+      "**Don't** usar bordes grises ni sombras negras en modo día; la sombra de día es navy translúcido.",
+      "**Don't** poner cápsulas, pistas ni fondos invertidos a la navegación; el activo es texto blanco y subrayado magenta.",
+      "**Don't** introducir una segunda familia tipográfica, antetítulos ni rótulos en mayúsculas con tracking.",
+      "**Don't** oscurecer las teselas del mapa con filtros; el mapa se lee de día."
+    ]
+  }
+}

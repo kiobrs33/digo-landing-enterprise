@@ -1,0 +1,128 @@
+{
+  "title": "Mundo visual — Digo Telecom (galáctico)",
+  "question": "El sorteo asignó la Lámpara de fibra óptica. ¿La confirmamos, tomamos una alterna o volvemos a sortear?",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Lámpara de fibra óptica",
+      "kicker": "THE ROLL",
+      "lineage": "La lámpara decorativa de fibra óptica de los 90, la que había en tantas salas peruanas",
+      "thesis": "Un haz de miles de fibras brota en el espacio y sus puntas encendidas se vuelven estrellas: la fibra de Digo ilumina tu casa.",
+      "palette": ["#020a2e", "#041c7b", "#de087e", "#ffffff", "#8fb4ff"],
+      "materials": ["fibras de vidrio con puntas luminosas", "espacio profundo navy", "pulsos de luz que suben y bajan"],
+      "viewport": "Titular a la izquierda; a la derecha un surtidor WebGL de fibras que sube desde la base y se abre en campo estelar; al elegir 500/800/1000 cambia la velocidad de los pulsos.",
+      "risk": "Puede leerse kitsch si las fibras se ven como adorno y no como la red; y el WebGL exige un respaldo liviano en celulares básicos.",
+      "raised": [
+        { "from": "challenger-terminal", "raise": "Los estados del sistema se imprimen como líneas de transmisión (cobertura, envío por WhatsApp), no como avisos flotantes." },
+        { "from": "challenger-riso", "raise": "Dos tintas y nada más: navy y magenta, con sus mezclas por superposición de luz; ningún gris inventado." },
+        { "from": "challenger-silk", "raise": "Subida y bajada son dos carriles de luz translúcidos que brillan más donde coinciden: la simetría se ve, y se rotula en texto." },
+        { "from": "challenger-ribbon", "raise": "Un solo haz de fibra recorre toda la página como hilo conductor, del hero al formulario." },
+        { "from": "challenger-cdrom", "raise": "Controles con recorrido físico: el selector de velocidad se hunde como el interruptor de la lámpara." },
+        { "from": "challenger-tropicalia", "raise": "Contraste de escala sin miedo: los Mbps a tamaño de cartel junto a texto pequeño." }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Galaxia de fibra",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Fotografía macro de un haz de fibra óptica cuyo extremo se abre como una galaxia espiral",
+      "thesis": "La red de Digo es una galaxia: cada brazo espiral es una fibra y los pulsos magenta son tus datos viajando a la velocidad de la luz.",
+      "palette": ["#020a2e", "#041c7b", "#de087e", "#ffffff"],
+      "materials": ["brazos espirales de fibra", "polvo estelar", "reflexión total interna"],
+      "viewport": "Galaxia WebGL a pantalla completa girando lento detrás del titular; el puntero acelera los pulsos que recorren los brazos.",
+      "risk": "Es la dirección donde terminan muchas marcas de telecom: impactante, pero más fácil de confundir con otras.",
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-terminal",
+      "label": "Terminal de fósforo",
+      "verdict": "declined",
+      "lineage": "Terminal de fósforo verde en una sala de máquinas",
+      "thesis": "Digo como una transcripción viva donde cada consulta se escribe en pantalla.",
+      "palette": ["#041c7b", "#de087e", "#ffffff"],
+      "materials": ["resplandor de fósforo", "cursor que respira"],
+      "viewport": "Una sola columna de texto monoespaciado con la consulta de cobertura como comando.",
+      "case": "Se fusiona mal: las familias de Arequipa no se reconocen en una consola y rompe el mundo galáctico pedido.",
+      "risk": "Frío y técnico para un público hogar.",
+      "kept": "Los estados del sistema se imprimen como líneas de transmisión."
+    },
+    {
+      "id": "challenger-riso",
+      "label": "Risógrafo",
+      "verdict": "declined",
+      "lineage": "Impresión risográfica a dos tintas",
+      "thesis": "Planes impresos en tintas fluorescentes desalineadas sobre papel.",
+      "palette": ["#041c7b", "#de087e", "#f3efe8"],
+      "materials": ["grano de papel", "tintas superpuestas"],
+      "viewport": "Planes como carteles risografiados con tintas desalineadas.",
+      "case": "Se fusiona mal: el fondo de papel contradice el espacio profundo pedido.",
+      "risk": "Artesanal donde se pidió moderno.",
+      "kept": "Compromiso total con dos tintas."
+    },
+    {
+      "id": "challenger-silk",
+      "label": "Toldos de seda",
+      "verdict": "declined",
+      "lineage": "Toldos de seda translúcida que se cruzan sobre un patio",
+      "thesis": "Colores que se superponen en acordes cambiantes.",
+      "palette": ["#041c7b", "#de087e", "#ffffff"],
+      "materials": ["seda translúcida", "acordes de color"],
+      "viewport": "Carriles de color cruzando un campo claro.",
+      "case": "Se fusiona mal: luminoso y diurno frente al pedido galáctico.",
+      "risk": "Abstracto; la oferta se pierde.",
+      "kept": "Superposición translúcida con estados rotulados en texto."
+    },
+    {
+      "id": "challenger-ribbon",
+      "label": "Cinta de procedencia",
+      "verdict": "declined",
+      "lineage": "Cinta de procedencia de museo",
+      "thesis": "Una sola cinta cuenta la historia de un objeto.",
+      "palette": ["#041c7b", "#de087e", "#efe6d6"],
+      "materials": ["cinta de seda", "sellos de archivo"],
+      "viewport": "Una columna guiada por una cinta continua.",
+      "case": "Se fusiona mal: archivístico, sin velocidad ni espacio.",
+      "risk": "Lento y museístico.",
+      "kept": "Una línea continua que guía toda la página."
+    },
+    {
+      "id": "challenger-cdrom",
+      "label": "Consola CD-ROM",
+      "verdict": "declined",
+      "lineage": "Interfaces de CD-ROM de los 90 con botones en relieve",
+      "thesis": "Una consola renderizada con una ventana central de contenido.",
+      "palette": ["#041c7b", "#de087e", "#c9ced8"],
+      "materials": ["paneles cepillados", "botones biselados"],
+      "viewport": "Consola fija con la oferta en una ventana pequeña.",
+      "case": "Se fusiona mal: retro de escritorio, no moderno ni galáctico.",
+      "risk": "Nostalgia de interfaz antigua.",
+      "kept": "Controles con recorrido físico."
+    },
+    {
+      "id": "challenger-tropicalia",
+      "label": "Collage tropicália",
+      "verdict": "declined",
+      "lineage": "Carátulas tropicália de los 60",
+      "thesis": "Un collage denso de recortes a escalas cruzadas.",
+      "palette": ["#041c7b", "#de087e", "#ffffff"],
+      "materials": ["recortes de papel", "letras dispersas"],
+      "viewport": "Una escena abarrotada de recortes.",
+      "case": "Se fusiona mal: festivo y caótico, lejos de telecom y del espacio.",
+      "risk": "La oferta se pierde en el ruido.",
+      "kept": "Contraste de escala sin miedo."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "Estándar de categoría ISP",
+    "thesis": "Lo que muestran los operadores: hero con gradiente tecnológico, velocidad grande y tres planes, ejecutado con oficio.",
+    "palette": ["#041c7b", "#de087e", "#ffffff"],
+    "materials": ["gradiente tecnológico", "tarjetas de plan"],
+    "viewport": "Hero con 1000 Mbps en grande, titular y CTAs; debajo tres tarjetas de plan.",
+    "risk": "Indistinguible de Movistar, Claro o Win por diseño."
+  },
+  "steer": true
+}

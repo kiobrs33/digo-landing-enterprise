@@ -1,0 +1,43 @@
+/* Global overflow guard */
+html {
+  overflow-x: clip;
+}
+
+body,
+.page {
+  overflow-x: clip;
+}
+
+/* ── Small screens (≤480px) ── */
+@media (max-width: 480px) {
+  :root {
+    --fab-inset: 0.75rem;
+    --fab-size: 3rem;
+  }
+
+  .container {
+    width: min(100% - 2rem, var(--container-max));
+  }
+
+}
+
+/* ── Tablet & mobile (≤768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 3.75rem;
+  }
+
+  .section-lead {
+    font-size: 1rem;
+  }
+
+  .page-legal h2 {
+    font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+  }
+
+  .page-legal p,
+  .page-legal li {
+    overflow-wrap: anywhere;
+  }
+}
+

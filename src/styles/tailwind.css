@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-digo-primary: #041c7b;
+  --color-digo-accent: #de087e;
+  --color-digo-surface: #f4f6fb;
+
+  --font-sans: 'Archivo Variable', system-ui, sans-serif;
+}

@@ -1,0 +1,666 @@
+
+
+/* ---- Servicios: lista de filas, no tarjetas iguales --------------------- */
+
+.empresas-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 3rem;
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.empresas-service-card {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.empresas-service-icon {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 50%;
+  color: var(--color-star);
+}
+
+.empresas-service-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.empresas-service-card p {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* Cierre de servicios: lo que no está en la lista también se evalúa. */
+.empresas-services-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.empresas-services-cta p {
+  max-width: 52ch;
+  color: var(--color-text-muted);
+}
+
+.empresas-services-cta strong {
+  color: var(--color-heading);
+}
+
+@media (max-width: 768px) {
+  .empresas-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Proceso de contratación ---------------------------------------------- */
+
+/* ---- Beneficios: ficha técnica del enlace (etiqueta | condición) --------- */
+
+.empresas-spec-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+/* El título acompaña la ficha mientras se lee. */
+.empresas-spec-header {
+  position: sticky;
+  top: calc(var(--site-sticky-offset, 5rem) + 1.5rem);
+  margin-bottom: 0;
+}
+
+.empresas-spec-group {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-accent-text);
+}
+
+.empresas-spec-block + .empresas-spec-block {
+  margin-top: 2.5rem;
+}
+
+.empresas-spec-list {
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.empresas-spec-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 0.35rem 2rem;
+  padding-block: 1.15rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.empresas-spec-row dt {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-heading);
+}
+
+/* Las garantías por contrato pesan más: misma voz display que los títulos. */
+.empresas-spec-list--core .empresas-spec-row dt {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.empresas-spec-row dd {
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 900px) {
+  .empresas-spec-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .empresas-spec-header {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .empresas-spec-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.empresas-process-section {
+  background-color: var(--color-bg);
+}
+
+.empresas-process-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  counter-reset: none;
+}
+
+.empresas-process-step {
+  position: relative;
+  padding-top: 2.75rem;
+}
+
+.empresas-process-step::before {
+  content: '';
+  position: absolute;
+  top: 1.1rem;
+  left: 0;
+  right: -1.5rem;
+  height: 1px;
+  background: var(--color-line-strong);
+}
+
+.empresas-process-step:last-child::before {
+  display: none;
+}
+
+.empresas-process-step-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-accent);
+  background: var(--color-bg);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 0 0 5px var(--color-bg), 0 0 18px -2px rgba(222, 8, 126, 0.55);
+  z-index: 1;
+}
+
+.empresas-process-step h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.empresas-process-step p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* ---- Cobertura corporativa: panel de ciudades + mapa ---------------------- */
+
+.empresas-services-section {
+  background: var(--color-surface);
+}
+
+.empresas-coverage-section {
+  background: var(--color-surface);
+}
+
+.empresas-coverage-layout {
+  display: grid;
+  grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.empresas-coverage-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.empresas-coverage-panel-title {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1.15;
+  color: var(--color-heading);
+}
+
+.empresas-coverage-hint {
+  margin-top: -0.6rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.empresas-coverage-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Provincias como chips, igual que las zonas de Hogar. */
+.empresas-coverage-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem 0.5rem 0.8rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: var(--color-panel);
+  font-size: 0.9rem;
+  font-weight: 650;
+  line-height: 1.2;
+  color: var(--color-heading);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease-out,
+    background-color 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+
+.empresas-coverage-city svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-text-muted);
+}
+
+.empresas-coverage-city:hover {
+  border-color: var(--color-heading);
+  background: var(--color-surface);
+}
+
+.empresas-coverage-city[aria-pressed='true'] {
+  border-color: var(--color-heading);
+  background: var(--color-tint-strong);
+  box-shadow: inset 0 0 0 1px var(--color-heading);
+}
+
+.empresas-coverage-city[aria-pressed='true'] svg {
+  color: var(--color-heading);
+}
+
+/* Nodo de la provincia: el mismo punto magenta del mapa. */
+.empresas-coverage-city-node {
+  flex: none;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-line-strong);
+}
+
+.empresas-coverage-note {
+  margin-top: -0.25rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.empresas-coverage-send {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.empresas-coverage-send-title {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.empresas-coverage-send-cta {
+  width: 100%;
+}
+
+.empresas-coverage-send-cta:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
+
+/* Resultado de "Usar mi ubicación": se queda en la página, junto al mapa. */
+.empresas-coverage-result {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 8px;
+  background: var(--color-tint);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.empresas-coverage-result--in {
+  border-color: var(--color-success);
+  background: var(--color-success-tint);
+}
+
+.empresas-coverage-result strong {
+  color: var(--color-heading);
+}
+
+.empresas-coverage-result-place {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.empresas-coverage-result-place span {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+/* WhatsApp: segunda acción, siempre a mano y sin competir con "Usar mi ubicación". */
+.empresas-coverage-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease-out,
+    border-color 0.15s ease-out;
+}
+
+.empresas-coverage-whatsapp svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-success);
+}
+
+.empresas-coverage-whatsapp:hover {
+  border-color: var(--color-line-strong);
+  background: var(--color-surface-alt);
+}
+
+.empresas-coverage-map-wrap {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  min-height: 34rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.empresas-coverage-map-wrap > div,
+.empresas-coverage-map {
+  width: 100%;
+  height: 100%;
+}
+
+.empresas-coverage-map {
+  min-height: 34rem;
+}
+
+.empresas-coverage-chip {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-panel);
+  box-shadow: 0 6px 18px -8px rgba(4, 28, 123, 0.4);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  pointer-events: none;
+}
+
+.empresas-coverage-chip svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-accent-text);
+}
+
+/* Nombre de cada ciudad sobre el mapa: cápsula navy, sin la flecha del tooltip de Leaflet. */
+.leaflet-tooltip.empresas-map-label {
+  padding: 0.3rem 0.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: #041c7b;
+  box-shadow: 0 6px 16px -6px rgba(3, 11, 51, 0.6);
+  color: #fff;
+  font-family: var(--font-body, inherit);
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.leaflet-tooltip.empresas-map-label::before {
+  display: none;
+}
+
+.empresas-coverage-map-wrap .leaflet-control-zoom {
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px -8px rgba(4, 28, 123, 0.45);
+}
+
+.empresas-coverage-map-wrap .leaflet-control-zoom a {
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  color: #041c7b;
+}
+
+@media (max-width: 900px) {
+  .empresas-coverage-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* En móvil el título de la sección ya lo dice y el rótulo taparía las ciudades. */
+  .empresas-coverage-chip {
+    display: none;
+  }
+
+  .empresas-coverage-map-wrap {
+    order: -1;
+    min-height: 0;
+  }
+
+  .empresas-coverage-map {
+    min-height: 0;
+    height: 22rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .empresas-coverage-panel {
+    padding: 1.15rem;
+  }
+
+  .empresas-coverage-map {
+    height: 18rem;
+  }
+}
+
+/* ---- Formulario de cotización --------------------------------------------- */
+
+.empresas-direct {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.empresas-direct-title {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.empresas-direct ul {
+  display: grid;
+}
+
+/* Cada canal en una fila: el dato a la izquierda, sus acciones a la derecha. */
+.empresas-direct li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.empresas-direct-number {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.empresas-direct-number span {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.empresas-direct-number strong {
+  font-weight: 700;
+  color: var(--color-heading);
+  font-variant-numeric: tabular-nums;
+}
+
+.empresas-direct-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.empresas-direct-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 650;
+  color: var(--color-heading);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease-out,
+    background-color 0.15s ease-out;
+}
+
+.empresas-direct-actions a:hover {
+  border-color: var(--color-star);
+  background: var(--color-surface);
+}
+
+.empresas-direct-actions svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-star);
+}
+
+.empresas-form-section {
+  background: var(--color-panel);
+}
+
+.empresas-form-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+.empresas-form-assurance {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.empresas-form-assurance li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.empresas-form-assurance svg {
+  flex: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--color-accent);
+  margin-top: 0.1rem;
+}
+
+.empresas-form-assurance strong {
+  color: var(--color-heading);
+}
+
+.empresas-form {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 1000px) {
+
+  .empresas-process-list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.5rem;
+  }
+
+  .empresas-process-step:nth-child(2)::before {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .empresas-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 560px) {
+  .empresas-process-list {
+    grid-template-columns: 1fr;
+  }
+
+  .empresas-process-step::before {
+    display: none;
+  }
+}

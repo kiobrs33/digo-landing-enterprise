@@ -1,0 +1,523 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Movimiento reducido: cada componente define su alternativa (sin desplazamiento, pero con
+   fundidos y cambios de color que confirman acciones). No se anula todo en bloque. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+html {
+  accent-color: var(--color-accent);
+  scrollbar-color: var(--color-line-strong) var(--color-bg);
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  width: min(100% - 2rem, var(--container-max));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(222, 8, 126, 0.18);
+  color: var(--color-accent-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.section {
+  padding-block: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+section[id] {
+  scroll-margin-top: var(--site-sticky-offset);
+}
+
+main:focus {
+  outline: none;
+}
+
+.map-placeholder {
+  background: var(--color-surface-alt);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 200;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.section-header {
+  max-width: 42rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-stretch: var(--display-stretch);
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+  text-wrap: balance;
+}
+
+.section-lead {
+  margin-top: 0.85rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  max-width: 58ch;
+}
+
+.section-header--center {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-header--center .section-lead {
+  margin-inline: auto;
+}
+
+.page-bg {
+  background: var(--color-bg);
+}
+
+.float-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.float-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn-lg {
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-strong);
+  border-color: var(--color-accent-strong);
+}
+
+.btn-secondary {
+  background: var(--color-panel);
+  color: var(--color-heading);
+  border-color: var(--color-line-strong);
+}
+
+.btn-secondary:hover {
+  background: var(--color-surface);
+  border-color: var(--color-star);
+}
+
+.btn-nav-empresas {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.btn-nav-empresas:hover {
+  background: var(--color-accent-strong);
+  border-color: var(--color-accent-strong);
+}
+
+/* Indicadores de carrusel: el botón mide 24px (área táctil), el punto se dibuja dentro. */
+.carousel-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carousel-dots button {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.carousel-dots button::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--color-tint-strong);
+  transition:
+    width 0.2s ease-out,
+    background-color 0.2s ease-out;
+}
+
+.carousel-dots button:hover::before {
+  background: var(--color-tint-strong);
+}
+
+.carousel-dots button[aria-current='true']::before {
+  width: 1.25rem;
+  background: var(--color-accent);
+}
+
+.carousel-dots button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  border-radius: 999px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  caret-color: var(--color-accent-text);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.75;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(222, 8, 126, 0.3);
+}
+
+.form-field input[aria-invalid='true'],
+.form-field select[aria-invalid='true'],
+.form-field textarea[aria-invalid='true'] {
+  border-color: var(--color-error);
+}
+
+.form-error {
+  font-size: 0.875rem;
+  color: var(--color-error);
+}
+
+.form-hint {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.form-success a {
+  color: inherit;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.form-success:focus {
+  outline: none;
+}
+
+.form-success {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-success);
+  border-radius: 8px;
+  background: var(--color-success-tint);
+  color: var(--color-success);
+  font-weight: 500;
+}
+
+.form-error-banner {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  color: var(--color-error);
+  font-weight: 500;
+}
+
+.form-error-banner:focus {
+  outline: none;
+}
+
+.form-error-fallback {
+  margin-top: 0.5rem;
+  color: var(--color-text);
+  font-weight: 400;
+}
+
+.form-error-fallback a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.form-error-banner ul {
+  list-style: disc;
+  padding-left: 1.1rem;
+}
+
+/* Casilla de aceptación: el texto se lee junto a la casilla, que no se encoge. */
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.form-field .form-check {
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.form-check input {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+  accent-color: var(--color-accent);
+}
+
+.form-check a {
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+/* Campo trampa: fuera de la vista y del orden de foco (ver HoneypotField). */
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Confirmación tras registrar un envío en la plataforma. */
+.form-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.form-result:focus {
+  outline: none;
+}
+
+.form-result-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 750;
+  font-stretch: var(--display-stretch);
+  color: var(--color-heading);
+}
+
+.form-result p {
+  color: var(--color-text-muted);
+}
+
+.form-result-code {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--color-heading);
+  font-variant-numeric: tabular-nums;
+}
+
+.form-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.page-legal {
+  padding-block: clamp(2rem, 5vw, 3rem) clamp(3rem, 8vw, 5rem);
+}
+
+.page-legal h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-stretch: var(--display-stretch);
+  font-weight: 750;
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+}
+
+.page-legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-legal p,
+.page-legal li {
+  color: var(--color-text-muted);
+  max-width: 68ch;
+}
+
+.page-legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.page-legal li + li {
+  margin-top: 0.35rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-accent-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

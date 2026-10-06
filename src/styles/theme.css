@@ -1,0 +1,76 @@
+/*
+ * Galaxia de fibra, versión día.
+ * El contenido vive sobre superficies claras; el espacio profundo queda para el header,
+ * los heros, las introducciones de las vistas aparte y el footer (clase .theme-space).
+ * Los componentes leen tokens: la misma pieza se adapta a la zona donde está.
+ */
+:root {
+  color-scheme: light;
+
+  /* Superficies claras */
+  --color-bg: #ffffff;
+  --color-surface: #f3f5fc;
+  --color-surface-alt: #e9eefb;
+  --color-panel: #ffffff;
+  /* Navy de marca: cabeceras de plan, bloques de acento */
+  --color-primary: #041c7b;
+
+  /* Texto */
+  --color-heading: #041c7b;
+  --color-text: #1a1f3d;
+  --color-text-muted: #4f5780;
+
+  /* Magenta: botones y pulsos; como texto sobre claro, el tono oscuro (6:1). */
+  --color-accent: #de087e;
+  --color-accent-strong: #c0066e;
+  --color-accent-text: #c0066e;
+  --color-star: #3552c4;
+  --color-line: rgba(4, 28, 123, 0.12);
+  --color-line-strong: rgba(4, 28, 123, 0.22);
+  --color-tint: rgba(4, 28, 123, 0.05);
+  --color-tint-strong: rgba(4, 28, 123, 0.09);
+
+  /* Estados de formulario y de consulta (≥6:1 sobre claro) */
+  --color-error: #b3261e;
+  --color-success: #14683f;
+  --color-success-tint: #e8f6ee;
+
+  --font-display: 'Archivo Variable', system-ui, sans-serif;
+  --font-body: 'Archivo Variable', system-ui, sans-serif;
+  --display-stretch: 125%;
+
+  --container-max: 72rem;
+  --header-height: 4rem;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-card: 0 16px 36px -22px rgba(4, 28, 123, 0.35);
+  --shadow-card-hover: 0 22px 44px -22px rgba(4, 28, 123, 0.45);
+  --fab-size: 3.5rem;
+  --fab-inset: 1.25rem;
+  --fab-gap: 0.75rem;
+  --site-sticky-offset: calc(var(--header-height) + 0.75rem);
+}
+
+/* Espacio profundo: header, heros, introducciones y footer. */
+.theme-space {
+  color-scheme: dark;
+  --color-bg: #030b33;
+  --color-surface: #061345;
+  --color-surface-alt: #061345;
+  --color-panel: #0b1d63;
+  --color-heading: #ffffff;
+  --color-text: #eef2ff;
+  --color-text-muted: #b4c0e8;
+  --color-accent-text: #ff5cb4;
+  --color-star: #8fb4ff;
+  --color-line: rgba(143, 180, 255, 0.18);
+  --color-line-strong: rgba(143, 180, 255, 0.34);
+  --color-tint: rgba(143, 180, 255, 0.08);
+  --color-tint-strong: rgba(143, 180, 255, 0.14);
+  --color-error: #ff9d9d;
+  --color-success: #b9f5d2;
+  --color-success-tint: rgba(123, 227, 168, 0.1);
+  --shadow-card: 0 18px 40px -24px rgba(0, 0, 0, 0.7);
+  --shadow-card-hover: 0 24px 48px -24px rgba(0, 0, 0, 0.8);
+  color: var(--color-text);
+}

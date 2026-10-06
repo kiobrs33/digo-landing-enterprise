@@ -1,0 +1,2865 @@
+/*
+ * Galaxia de fibra — mundo visual de todo el sitio.
+ * Espacio profundo navy, fibras y estrellas en azul estelar, magenta solo para el pulso
+ * de datos y la acción. Titulares en Archivo expandida; lectura en Archivo normal.
+ */
+@import '@fontsource-variable/archivo/wdth.css';
+
+/* Campo estelar en CSS: tres capas de estrellas con distinto tamaño de tesela. */
+.starfield {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(1px 1px at 23px 41px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 131px 97px, rgba(143, 180, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 77px 163px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 197px 13px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 311px 227px, rgba(143, 180, 255, 0.6), transparent),
+    radial-gradient(2px 2px at 263px 311px, rgba(255, 255, 255, 0.45), transparent);
+  background-size:
+    220px 220px,
+    220px 220px,
+    220px 220px,
+    340px 340px,
+    340px 340px,
+    400px 400px;
+}
+
+/* ── Titulares expandidos ── */
+.page h1,
+.page h2 {
+  font-stretch: var(--display-stretch);
+}
+
+/* ── Header: banda de espacio compacta ── */
+.site-header,
+.site-header--menu-open,
+.site-header--menu-open .site-header-inner,
+body.mobile-nav-open .site-header,
+body.mobile-nav-open .site-header-inner {
+  background: var(--color-bg);
+  color: var(--color-heading);
+  backdrop-filter: none;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--color-line);
+  box-shadow: none;
+}
+
+.site-header--empresas {
+  border-bottom-color: var(--color-line);
+}
+
+.site-logo {
+  gap: 0.6rem;
+}
+
+.site-logo-mark {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.site-logo-word {
+  font-stretch: var(--display-stretch);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.site-nav ul {
+  gap: 0.25rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+}
+
+.site-nav a,
+.site-header--empresas .site-nav a {
+  padding: 0.4rem 0.7rem;
+  border: 0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+.site-nav a:hover {
+  color: var(--color-heading);
+  background: var(--color-tint);
+}
+
+/* Activo: texto blanco y una fibra magenta debajo, sin cápsula. */
+.site-nav a.is-active,
+.site-header--empresas .site-nav a.is-active {
+  color: var(--color-heading);
+  font-weight: 600;
+  background: none;
+  box-shadow: none;
+}
+
+.site-nav a.is-active::before {
+  content: none;
+}
+
+.site-nav a.is-active::after,
+.site-header--empresas .site-nav a.is-active::after {
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: -0.1rem;
+  width: auto;
+  height: 2px;
+  transform: none;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+.site-header .btn-nav-empresas {
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.site-nav a:focus-visible,
+.site-logo:focus-visible {
+  outline: 2px solid var(--color-star);
+  outline-offset: 2px;
+}
+
+.site-nav-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border-color: var(--color-line-strong);
+  color: var(--color-heading);
+}
+
+.site-nav-toggle:hover {
+  background: var(--color-tint);
+  border-color: var(--color-star);
+}
+
+.site-nav-toggle[aria-expanded='true'],
+.site-header--empresas .site-nav-toggle[aria-expanded='true'] {
+  background: var(--color-heading);
+  border-color: var(--color-heading);
+  color: var(--color-bg);
+}
+
+.site-mobile-drawer,
+body.mobile-nav-open .site-mobile-drawer {
+  background: var(--color-surface);
+  border-top-color: var(--color-line);
+}
+
+.site-mobile-nav-list a:not(.btn) {
+  color: var(--color-text);
+}
+
+.site-mobile-backdrop {
+  background: rgba(1, 4, 20, 0.6);
+}
+
+/* ── Hero: galaxia de fibra ── */
+/* El núcleo de la galaxia se ancla al centro de la columna derecha del contenedor (donde va el
+   cartel o el diagrama), no al ancho de la ventana: así en pantallas anchas no se descuadra.
+   Columnas 1.15fr / 1fr con 2.5rem de hueco: el centro de la derecha está a W/2 − (W − 2.5rem)/4.3
+   del centro del contenedor. */
+.hero-galaxy {
+  --hero-container: min(100vw - 2rem, 72rem);
+  --galaxy-x: calc(50% + var(--hero-container) / 2 - (var(--hero-container) - 2.5rem) / 4.3);
+  position: relative;
+  isolation: isolate;
+  /* clip, no hidden: con hidden, enfocar un control desplazaba el hero hacia la galaxia. */
+  overflow: clip;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  background:
+    /* Tamaño en longitudes fijas: min() no es válido como tamaño de elipse y anula el fondo. */
+    radial-gradient(ellipse 56rem 70% at var(--galaxy-x) 50%, rgba(4, 28, 123, 0.9), transparent 70%),
+    var(--color-bg);
+}
+
+.hero-galaxy-scene {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--galaxy-x);
+  width: min(82vw, 74rem);
+  z-index: -1;
+  translate: -50% 0;
+}
+
+.hero-galaxy-scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(210, 225, 255, 0.35) 0%,
+    var(--color-tint-strong) 9%,
+    rgba(4, 28, 123, 0.35) 22%,
+    transparent 45%
+  );
+}
+
+/* La escena es un contenedor: la órbita se mide en alto de escena (cqh) y sigue a la galaxia. */
+.hero-galaxy-scene {
+  container-type: size;
+}
+
+/* Órbita inclinada como el disco: la nave la recorre (la mueve FiberGalaxy). */
+.galaxy-orbit {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+
+.galaxy-orbit::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 86cqh;
+  height: 53cqh;
+  border: 1px dashed rgba(143, 180, 255, 0.28);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.galaxy-ship {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 156px;
+  height: 32px;
+  offset-path: ellipse(43cqh 26.5cqh at 50% 50%);
+  offset-anchor: 83% 50%;
+  offset-rotate: auto;
+  offset-distance: 32%;
+  filter: drop-shadow(0 0 10px rgba(255, 92, 180, 0.45));
+}
+
+.galaxy-ship svg {
+  display: block;
+  overflow: visible;
+}
+
+.galaxy-ship-flame {
+  transform-origin: 15px 16px;
+  animation: ship-flame 0.18s ease-in-out infinite alternate;
+}
+
+@media (min-width: 901px) {
+  .galaxy-orbit::before {
+    width: 103cqh;
+    height: 64cqh;
+  }
+
+  .galaxy-ship {
+    offset-path: ellipse(51.6cqh 31.8cqh at 50% 50%);
+    scale: 1.2;
+  }
+}
+
+@keyframes ship-flame {
+  from {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-ship-flame {
+    animation: none;
+  }
+}
+
+.fiber-galaxy {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sin WebGL: una espiral quieta hecha de luz, para que el hero no quede vacío. */
+.fiber-galaxy[data-fallback='true'] {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.85) 0 2%, transparent 7%),
+    conic-gradient(
+      from 20deg at 50% 50%,
+      transparent 0 10%,
+      var(--color-tint-strong) 14%,
+      transparent 22% 35%,
+      rgba(222, 8, 126, 0.25) 40%,
+      transparent 48% 60%,
+      var(--color-tint-strong) 64%,
+      transparent 72% 85%,
+      rgba(222, 8, 126, 0.25) 90%,
+      transparent 98%
+    );
+  border-radius: 50%;
+  transform: scaleY(0.62) rotate(-20deg);
+  opacity: 0.8;
+}
+
+.hero-galaxy-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-galaxy-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-galaxy-title {
+  max-width: 13ch;
+  font-size: clamp(2.5rem, 4.4vw, 3.75rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--color-heading);
+  text-wrap: balance;
+}
+
+.hero-galaxy-lead {
+  max-width: 40ch;
+  margin-top: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.hero-galaxy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* Cartel publicitario en el núcleo de la galaxia. La pantalla es cuadrada para que el hero
+   entre en un pantallazo; una pieza vertical (4:5) se centra sobre una copia desenfocada. */
+.hero-showcase {
+  justify-self: center;
+  width: min(100%, 22rem);
+  padding: 0.6rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 20px;
+  background: var(--color-bg);
+  box-shadow:
+    0 40px 80px -30px rgba(1, 4, 20, 0.9),
+    0 18px 36px -18px rgba(222, 8, 126, 0.35);
+  rotate: 2deg;
+  transition: rotate 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-showcase:hover,
+.hero-showcase:focus-within {
+  rotate: 0deg;
+}
+
+.hero-showcase-screen {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+/* La pieza es un botón que abre el visor: la imagen crece un poco y aparece el ícono de lupa. */
+.hero-showcase-zoom {
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.hero-showcase-zoom picture img {
+  transition: scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-showcase-zoom::after {
+  content: '';
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='6'/%3E%3Cpath d='M20 20l-4.5-4.5M11 8.5v5M8.5 11h5'/%3E%3C/svg%3E")
+      center / 1.15rem no-repeat,
+    rgba(3, 11, 51, 0.72);
+  opacity: 0;
+  translate: 0 0.25rem;
+  transition:
+    opacity 0.25s ease-out,
+    translate 0.25s ease-out;
+  pointer-events: none;
+}
+
+.hero-showcase-zoom:hover picture img {
+  scale: 1.04;
+}
+
+.hero-showcase-zoom:hover::after,
+.hero-showcase-zoom:focus-visible::after {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* En táctil no hay hover: la lupa queda visible para que se sepa que se puede ampliar. */
+@media (hover: none) {
+  .hero-showcase-zoom::after {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.hero-showcase-zoom:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-showcase-zoom picture img,
+  .hero-showcase-zoom::after {
+    transition: none;
+  }
+}
+
+.hero-showcase-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  filter: blur(12px);
+  scale: 1.06;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    scale 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-showcase-slide[data-active='true'] {
+  opacity: 1;
+  filter: blur(0);
+  scale: 1;
+}
+
+/* Las piezas ocultas están apiladas encima: sin esto, el clic ampliaría otra pieza. */
+.hero-showcase-slide:not([data-active='true']) {
+  pointer-events: none;
+}
+
+.hero-showcase-slide picture img,
+.hero-showcase-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.hero-showcase-slide picture img {
+  object-fit: contain;
+}
+
+.hero-showcase-backdrop {
+  object-fit: cover;
+  filter: blur(24px) saturate(1.2);
+  scale: 1.2;
+  opacity: 0.85;
+}
+
+/* Flechas sobre los costados de la pantalla: siempre visibles, también en táctil. */
+.hero-showcase-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: rgba(3, 11, 51, 0.7);
+  color: #fff;
+  cursor: pointer;
+  translate: 0 -50%;
+  box-shadow: 0 8px 20px -8px rgba(1, 4, 20, 0.8);
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    scale 0.12s ease-out;
+}
+
+.hero-showcase-arrow--prev {
+  left: 0.6rem;
+}
+
+.hero-showcase-arrow--next {
+  right: 0.6rem;
+}
+
+.hero-showcase-arrow:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.hero-showcase-arrow:active {
+  scale: 0.92;
+}
+
+.hero-showcase-arrow:focus-visible {
+  outline: 2px solid var(--color-star);
+  outline-offset: 2px;
+}
+
+.hero-showcase-arrow svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.hero-showcase-bars {
+  display: grid;
+}
+
+.hero-showcase-bar {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0.4rem 0.35rem;
+  visibility: hidden;
+}
+
+.hero-showcase-bar[data-active='true'] {
+  visibility: visible;
+}
+
+.hero-showcase-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-showcase-bar[data-active='true'] .hero-showcase-copy {
+  animation: hero-showcase-copy-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes hero-showcase-copy-in {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+}
+
+.hero-showcase-title {
+  font-stretch: var(--display-stretch);
+  font-size: 1.125rem;
+  font-weight: 750;
+  line-height: 1.15;
+  color: var(--color-heading);
+  text-wrap: balance;
+}
+
+.hero-showcase-detail {
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.hero-showcase-cta {
+  flex: none;
+}
+
+.hero-showcase-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem 0.25rem;
+}
+
+.hero-showcase-tabs {
+  flex: 1;
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* Cada pestaña es un carril de fibra: el activo se llena con el pulso mientras corre. */
+.hero-showcase-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.hero-showcase-tab span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-tint-strong);
+}
+
+.hero-showcase-tab span::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-accent), rgba(255, 190, 225, 0.9));
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hero-showcase-tab[aria-current='true'] span::after {
+  transform: scaleX(1);
+}
+
+.hero-showcase[data-running='true'] .hero-showcase-tab[aria-current='true'] span::after {
+  animation: hero-showcase-progress var(--ad-duration) linear;
+}
+
+@keyframes hero-showcase-progress {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.hero-showcase-tab:hover span {
+  background: var(--color-line-strong);
+}
+
+.hero-showcase-tab:focus-visible,
+.hero-showcase-toggle:focus-visible {
+  outline: 2px solid var(--color-star);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.hero-showcase-toggle {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: none;
+  color: var(--color-heading);
+  cursor: pointer;
+  transition: border-color 0.2s ease-out;
+}
+
+.hero-showcase-toggle:hover {
+  border-color: var(--color-star);
+}
+
+.hero-showcase-toggle svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-showcase,
+  .hero-showcase-slide {
+    transition: opacity 0.2s linear;
+  }
+
+  .hero-showcase {
+    rotate: 0deg;
+  }
+
+  .hero-showcase-slide {
+    filter: none;
+    scale: 1;
+  }
+
+  .hero-showcase-bar[data-active='true'] .hero-showcase-copy {
+    animation: none;
+  }
+}
+
+/* Empresas: mismo mundo; a la derecha, el diagrama del enlace dedicado en el núcleo de la
+   galaxia (la versión B2B del cartel de Hogar: sin publicidad, con las garantías del servicio). */
+.empresas-hero-title {
+  max-width: 11ch;
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  line-height: 0.96;
+}
+
+/* Datos de para quién es el servicio, bajo las acciones (los mismos chips de Hogar). */
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.75rem;
+}
+
+.hero-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.6rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-tint);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.hero-chips svg {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-star);
+}
+
+/* La cifra del enlace: el dato protagonista colgado de la fibra, como en la cabecera de plan. */
+.empresas-link-fiber li.empresas-link-speed {
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-tint);
+}
+
+.empresas-link-fiber li.empresas-link-speed > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--color-star);
+}
+
+.empresas-link-speed > span {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.empresas-link-speed-value {
+  font-family: var(--font-display);
+  font-stretch: var(--display-stretch);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-heading);
+}
+
+.empresas-link-speed-value span {
+  margin-left: 0.3rem;
+  font-size: 1.125rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.empresas-link-speed-note {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.empresas-link {
+  justify-self: center;
+  width: min(100%, 25rem);
+  padding: 1.5rem 1.5rem 1.5rem 1.35rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 20px;
+  background: var(--color-bg);
+  box-shadow: 0 30px 60px -30px rgba(1, 4, 20, 0.9);
+}
+
+.empresas-link-fiber {
+  margin-block: 0.5rem;
+}
+
+.empresas-link-fiber li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.empresas-link-fiber svg {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.05rem;
+  color: var(--color-accent-text);
+}
+
+.empresas-link-fiber strong {
+  color: var(--color-heading);
+}
+
+/* ── Diagrama de fibra (sistema compartido) ──────────────────────────────────────────────
+   Dos extremos (.fiber-endpoint con .fiber-node) unidos por una fibra vertical (.fiber-track)
+   de la que cuelgan los elementos, cada uno con un nodo pequeño. Dos pulsos la recorren a la
+   vez en sentidos opuestos: el tráfico simétrico. Los pulsos corren solo si un ancestro tiene
+   data-live="true" (en pantalla) y nunca con movimiento reducido. Lo usan el hero Empresas,
+   las tarjetas de plan y los testimonios. */
+.fiber-endpoint {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.fiber-endpoint p,
+.fiber-endpoint > div {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.fiber-endpoint strong,
+.fiber-endpoint cite {
+  font-stretch: var(--display-stretch);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 750;
+  line-height: 1.2;
+  color: var(--color-heading);
+}
+
+.fiber-endpoint span {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* Origen en magenta (acción); destino en azul estelar hueco. */
+.fiber-node {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 5px rgba(222, 8, 126, 0.16);
+}
+
+.fiber-node--sink {
+  border-color: var(--color-star);
+  background: var(--color-bg);
+  box-shadow: 0 0 0 5px var(--color-tint-strong);
+}
+
+/* La fibra nace en el centro del nodo de 1.25rem: 0.625rem desde el borde. */
+.fiber-track {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  margin-left: calc(0.625rem - 1px);
+  padding: 1rem 0 1rem 1.6rem;
+}
+
+.fiber-track::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  bottom: -0.5rem;
+  left: 0;
+  width: 2px;
+  background-color: var(--color-line-strong);
+  background-image:
+    linear-gradient(180deg, transparent, var(--color-accent), rgba(255, 190, 225, 0.9), transparent),
+    linear-gradient(0deg, transparent, var(--color-star), #fff, transparent);
+  background-size:
+    100% 35%,
+    100% 35%;
+  background-repeat: no-repeat;
+  background-position:
+    0 -60%,
+    0 160%;
+}
+
+[data-live='true'] .fiber-track::before {
+  animation: link-traffic var(--fiber-duration, 2.4s) linear infinite;
+}
+
+@keyframes link-traffic {
+  from {
+    background-position:
+      0 -60%,
+      0 160%;
+  }
+  to {
+    background-position:
+      0 160%,
+      0 -60%;
+  }
+}
+
+.fiber-track > * {
+  position: relative;
+}
+
+/* Cada elemento cuelga de la fibra con un nodo pequeño centrado en la línea. */
+.fiber-track > :not(.fiber-track-end)::before {
+  content: '';
+  position: absolute;
+  top: 0.45rem;
+  left: calc(-1.6rem - 3px);
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid var(--color-star);
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-live='true'] .fiber-track::before {
+    animation: none;
+  }
+}
+
+/* ── Costuras de fibra entre secciones: un pulso recorre cada unión ── */
+.page--hogar main > section + section {
+  position: relative;
+}
+
+.page--hogar main > section + section::before,
+.page--hogar main > section + section::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  height: 2px;
+  pointer-events: none;
+}
+
+.page--hogar main > section + section::before {
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, transparent, var(--color-line-strong) 15% 85%, transparent);
+}
+
+.page--hogar main > section + section::after {
+  left: 0;
+  width: 18%;
+  background: linear-gradient(90deg, transparent, var(--color-accent), rgba(255, 190, 225, 0.9));
+  animation: fiber-seam 7s linear infinite;
+}
+
+.page--hogar main > section:nth-of-type(odd) + section::after {
+  animation-direction: reverse;
+  animation-duration: 9s;
+}
+
+@keyframes fiber-seam {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(560%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page--hogar main > section + section::after {
+    content: none;
+  }
+}
+
+/* ── Planes: cabecera de espacio con carriles de fibra, cuerpo claro ── */
+.plans-section {
+  margin-top: 0;
+  padding-top: clamp(3.5rem, 8vw, 5.5rem);
+  background: var(--color-bg);
+}
+
+/* Riel del tablero: con más planes de los que caben, se desliza. El relleno deja ver la
+   insignia del plan destacado y la sombra, que el recorte del scroll cortaría. */
+.plans-rail {
+  margin-block: -1rem -3rem;
+  padding-block: 1rem 3rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.plans-rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bordes que se desvanecen donde quedan planes por ver. */
+.plans-rail[data-overflow='true'][data-at-start='false'] {
+  mask-image: linear-gradient(90deg, transparent, #000 3rem);
+}
+
+.plans-rail[data-overflow='true'][data-at-end='false'] {
+  mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent);
+}
+
+.plans-rail[data-overflow='true'][data-at-start='false'][data-at-end='false'] {
+  mask-image: linear-gradient(90deg, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
+}
+
+.plans-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.plans-nav-status {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.plans-nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.plans-nav-button {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: var(--color-panel);
+  color: var(--color-heading);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease-out,
+    background-color 0.2s ease-out;
+}
+
+.plans-nav-button:hover:not(:disabled) {
+  border-color: var(--color-star);
+  background: var(--color-surface);
+}
+
+.plans-nav-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.plans-nav-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Lo común a todos los planes, una sola vez bajo el tablero, y las condiciones de la promo. */
+.plans-shared {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.plans-shared-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.plans-shared ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+}
+
+.plans-shared li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+.plans-shared li::before {
+  content: '';
+  position: absolute;
+  top: 0.4rem;
+  left: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+}
+
+.plans-terms {
+  flex-basis: 100%;
+  max-width: 72ch;
+  margin-inline: auto;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* Tablero comparativo: una sola pieza, columnas unidas, filas alineadas con subgrid. Hasta 4
+   planes caben en el ancho; desde 5, cada columna mide 17rem y el riel se desliza. */
+.plans-board {
+  display: grid;
+  width: max(100%, calc(var(--plan-count, 3) * 17rem + (var(--plan-count, 3) - 1) * 1.5rem));
+  grid-template-columns: repeat(var(--plan-count, 3), minmax(0, 1fr));
+  grid-template-rows: auto auto 1fr auto;
+  column-gap: 1.5rem;
+}
+
+.plan-column {
+  position: relative;
+  grid-row: span 4;
+  display: grid;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  scroll-snap-align: start;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-card);
+}
+
+.plan-column-head {
+  position: relative;
+  padding: 1.9rem 1.75rem 1.6rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.plan-column-head {
+  border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
+}
+
+.plan-column-badge {
+  position: absolute;
+  top: -0.8rem;
+  left: 50%;
+  z-index: 1;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.plan-column-title {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.plan-column-name {
+  font-stretch: 100%;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.plan-column-speed {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-heading);
+}
+
+.plan-column-speed small {
+  font-stretch: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+/* El plan más elegido: marco magenta de 2px (borde transparente + contorno, que sigue el
+   radio de la tarjeta), núcleo de luz en la cabecera y botón principal. */
+.plan-column.is-highlighted {
+  z-index: 1;
+  border-color: transparent;
+  outline: 2px solid var(--color-accent);
+  outline-offset: -1px;
+  box-shadow: 0 28px 60px -28px rgba(222, 8, 126, 0.55);
+}
+
+/* La fibra de hover va por el borde recto de la tarjeta, entre las dos curvas (ver más abajo).
+   El destacado no la lleva: su marco ya es magenta (su respuesta es el halo y el pulso). */
+.plan-column.is-highlighted::before {
+  content: none;
+}
+
+.plan-promo-regular {
+  white-space: nowrap;
+}
+
+.plan-column.is-highlighted .plan-column-head {
+  background-image:
+    radial-gradient(ellipse 70% 90% at 80% 0%, rgba(222, 8, 126, 0.5), transparent 70%),
+    radial-gradient(1px 1px at 23px 41px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 131px 97px, rgba(143, 180, 255, 0.8), transparent);
+  background-size:
+    100% 100%,
+    220px 220px,
+    220px 220px;
+  background-repeat: no-repeat, repeat, repeat;
+}
+
+/* Cuerpo de la tarjeta como diagrama de fibra. El nodo de origen está a 1.75rem del borde; su
+   centro (2.375rem) es el eje de la fibra, que baja del precio hasta "Tu hogar". */
+.plan-column-price {
+  position: relative;
+  padding: 1.5rem 1.75rem 0 calc(1.75rem + 1.25rem + 0.9rem);
+}
+
+.plan-column-price .fiber-node {
+  position: absolute;
+  top: calc(1.5rem + 0.5rem);
+  left: 1.75rem;
+}
+
+/* Tramo de fibra entre el nodo del precio y la lista (misma línea, sin pulso). */
+.plan-column-price::after {
+  content: '';
+  position: absolute;
+  top: calc(2rem + 1.25rem);
+  bottom: 0;
+  left: calc(2.375rem - 1px);
+  width: 2px;
+  background: var(--color-line-strong);
+}
+
+.plan-column-features.fiber-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 1rem 1.75rem 1.5rem calc(2.375rem + 1.6rem);
+}
+
+.plan-column-features.fiber-track::before {
+  top: 0;
+  bottom: calc(1.5rem + 0.9rem);
+  left: calc(2.375rem - 1px);
+}
+
+.plan-column-features li {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+/* Destino: al fondo de la lista, así "Tu hogar" queda alineado entre planes. */
+.plan-column-home {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+.plan-column-home .fiber-node {
+  margin-left: calc(-1.6rem - 0.625rem);
+}
+
+.plan-column-home p {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.plan-column-home strong {
+  font-stretch: var(--display-stretch);
+  font-size: 1rem;
+  font-weight: 750;
+  color: var(--color-heading);
+}
+
+.plan-column-home span {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.plan-column-cta {
+  padding: 0 1.75rem 1.75rem;
+}
+
+.plan-column-cta .btn {
+  width: 100%;
+}
+
+/* Móvil: tarjetas sueltas que se deslizan de lado, con la siguiente asomando. */
+@media (max-width: 900px) {
+  .plans-rail {
+    margin-inline: calc(-1 * var(--gutter, 1rem));
+    padding-inline: var(--gutter, 1rem);
+    scroll-padding-inline: var(--gutter, 1rem);
+  }
+
+  .plans-rail[data-overflow='true'] {
+    mask-image: none !important;
+  }
+
+  .plans-board {
+    width: max-content;
+    grid-template-columns: repeat(var(--plan-count, 3), min(82vw, 21rem));
+    column-gap: 1rem;
+  }
+
+  /* A la izquierda: la derecha la ocupan los botones flotantes. */
+  .plans-nav {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+}
+
+/* Lo que trae el plan, legible de un vistazo en la cabecera: magenta si incluye TV. */
+.plan-column-tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.plan-column-tier svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.plan-column-tier--tv {
+  border-color: rgba(255, 92, 180, 0.45);
+  background: rgba(222, 8, 126, 0.16);
+  color: var(--color-heading);
+}
+
+.plan-column-tier--tv svg {
+  color: var(--color-accent-text);
+}
+
+/* Al pasar por un plan (o enfocar algo dentro): la tarjeta sube 4px con una sombra más larga,
+   una fibra magenta se enciende en su borde superior y la cabecera recibe el halo. */
+.plan-column {
+  transition:
+    translate 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plan-column::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: var(--radius-lg);
+  right: var(--radius-lg);
+  z-index: 2;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), rgba(255, 190, 225, 0.9));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease-in;
+  pointer-events: none;
+}
+
+.plan-column-head::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse 70% 90% at 20% 0%, rgba(222, 8, 126, 0.32), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+  pointer-events: none;
+}
+
+/* Sobre el halo; la insignia queda fuera porque va montada en el borde (absoluta). */
+.plan-column-head > :not(.plan-column-badge) {
+  position: relative;
+  z-index: 1;
+}
+
+.plan-column-badge {
+  z-index: 3;
+}
+
+.plan-column-cta .btn svg {
+  transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) {
+  .plan-column:hover {
+    translate: 0 -4px;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .plan-column.is-highlighted:hover {
+    box-shadow: 0 34px 64px -28px rgba(222, 8, 126, 0.6);
+  }
+
+  .plan-column:hover::before {
+    transform: scaleX(1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .plan-column:hover .plan-column-head::after {
+    opacity: 1;
+  }
+
+  .plan-column:hover .plan-column-cta .btn svg {
+    translate: 0.2rem 0;
+  }
+}
+
+.plan-column:focus-within::before {
+  transform: scaleX(1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plan-column:focus-within .plan-column-head::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plan-column,
+  .plan-column::before,
+  .plan-column:hover::before,
+  .plan-column:focus-within::before,
+  .plan-column-cta .btn svg {
+    transition: none;
+  }
+
+  .plan-column:hover,
+  .plan-column:hover .plan-column-cta .btn svg {
+    translate: none;
+  }
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-stretch: var(--display-stretch);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-heading);
+}
+
+.plan-price span {
+  font-stretch: 100%;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.plan-promo {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent-text);
+}
+
+/* ── Beneficios: una línea de fibra con nodos ── */
+.benefits-section {
+  border-block: 1px solid var(--color-line);
+}
+
+.benefits-frieze {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-top: 2.25rem;
+}
+
+/* La fibra que une los nodos */
+.benefits-frieze::before {
+  content: '';
+  position: absolute;
+  top: 0.45rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-star) 60%, transparent);
+}
+
+.benefits-frieze li {
+  position: relative;
+}
+
+.benefits-frieze li::before {
+  content: '';
+  position: absolute;
+  top: -2.25rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-star);
+}
+
+.benefits-frieze li:first-child::before {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.benefits-frieze h3 {
+  font-stretch: var(--display-stretch);
+  font-size: 1.25rem;
+  font-weight: 750;
+  line-height: 1.15;
+  color: var(--color-heading);
+  text-wrap: balance;
+}
+
+.benefits-frieze p {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* ── Servicios ── */
+.services-section {
+  background: var(--color-surface);
+}
+
+.services-slabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.service-slab {
+  padding: 2rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+}
+
+.service-slab h3 {
+  font-stretch: var(--display-stretch);
+  font-size: 1.5rem;
+  font-weight: 750;
+  line-height: 1.12;
+  color: var(--color-heading);
+}
+
+.service-slab-lead {
+  margin-top: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.service-slab dl {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.service-slab dl > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.service-slab dt {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.service-slab dd {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.services-cta {
+  margin-top: 2rem;
+}
+
+/* ── Proceso: secuencia numerada unida por una fibra ── */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.process-steps li {
+  position: relative;
+  padding-top: 4.5rem;
+}
+
+.process-steps li::before {
+  content: '';
+  position: absolute;
+  top: 1.75rem;
+  left: 3.5rem;
+  right: -1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-star), var(--color-tint-strong));
+}
+
+.process-steps li:last-child::before {
+  content: none;
+}
+
+.process-step-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 2px solid var(--color-star);
+  border-radius: 50%;
+  background: var(--color-bg);
+  font-stretch: var(--display-stretch);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-heading);
+}
+
+.process-steps li:first-child .process-step-number {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.process-steps h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.process-steps p {
+  margin-top: 0.4rem;
+  color: var(--color-text-muted);
+}
+
+/* Las secuencias se dibujan con el scroll: la luz recorre la fibra de nodo a nodo y cada nodo
+   se enciende al pasar. Sin soporte de scroll-timeline, o con movimiento reducido, quedan fijas. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .benefits-frieze,
+    .process-steps {
+      view-timeline-name: --fiber;
+    }
+
+    .benefits-frieze::before,
+    .process-steps li::before {
+      transform-origin: left;
+      animation: fiber-draw linear both;
+      animation-timeline: --fiber;
+    }
+
+    .benefits-frieze::before {
+      animation-range: cover 10% cover 50%;
+    }
+
+    .benefits-frieze li::before,
+    .process-step-number {
+      animation: fiber-node linear both;
+      animation-timeline: --fiber;
+      animation-range: cover calc(8% + var(--node) * 8%) cover calc(13% + var(--node) * 8%);
+    }
+
+    /* Cada tramo del proceso une un nodo con el siguiente: se dibujan en orden. */
+    .process-steps li::before {
+      animation-range: cover calc(10% + var(--node) * 10%) cover calc(20% + var(--node) * 10%);
+    }
+
+    .process-step-number {
+      animation-range: cover calc(8% + var(--node) * 10%) cover calc(12% + var(--node) * 10%);
+    }
+
+    .benefits-frieze li:nth-child(1),
+    .process-steps li:nth-child(1) {
+      --node: 0;
+    }
+    .benefits-frieze li:nth-child(2),
+    .process-steps li:nth-child(2) {
+      --node: 1;
+    }
+    .benefits-frieze li:nth-child(3),
+    .process-steps li:nth-child(3) {
+      --node: 2;
+    }
+    .benefits-frieze li:nth-child(4),
+    .process-steps li:nth-child(4) {
+      --node: 3;
+    }
+    .benefits-frieze li:nth-child(5) {
+      --node: 4;
+    }
+  }
+}
+
+@keyframes fiber-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes fiber-node {
+  from {
+    border-color: var(--color-line-strong);
+    scale: 0.7;
+  }
+}
+
+.process-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+/* ── Contacto ── */
+.contact-section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-line);
+}
+
+.contact-channels a {
+  color: var(--color-heading);
+}
+
+.contact-channels svg {
+  color: var(--color-accent-text);
+}
+
+/* ── Vistas aparte ── */
+.page-intro {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.page-intro-title {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-stretch: var(--display-stretch);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: var(--color-heading);
+}
+
+.page-intro-lead {
+  max-width: 60ch;
+  margin-top: 0.85rem;
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+
+.page-intro-lead a {
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+.coverage-section {
+  background: var(--color-bg);
+}
+
+.coverage-panel {
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+}
+
+.faq-section .faq-list {
+  max-width: 52rem;
+}
+
+.faq-item h2 {
+  font-size: inherit;
+  font-weight: inherit;
+  font-stretch: 100%;
+}
+
+/* ── Medios de pago ── */
+.payment-slabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.payment-slab {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+}
+
+/* Yape Servicios: la vía recomendada, a todo el ancho y con marco magenta (como el plan
+   recomendado). Compacta: qué es + resultado a la izquierda, pasos en fila a la derecha. */
+.yape-card {
+  position: relative;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 2fr);
+  gap: 1.5rem 2.5rem;
+  align-items: center;
+  padding: 2rem;
+  border-color: transparent;
+  outline: 2px solid var(--color-accent);
+  outline-offset: -1px;
+  box-shadow: 0 28px 60px -28px rgba(222, 8, 126, 0.45);
+}
+
+.payment-badge {
+  position: absolute;
+  top: -0.8rem;
+  left: 2rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.yape-card-head {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.yape-card-head h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-heading);
+}
+
+.yape-card-head > p {
+  color: var(--color-text-muted);
+}
+
+.yape-card-done {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: var(--color-tint);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.yape-card-done svg {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.05rem;
+  color: var(--color-accent-text);
+}
+
+.yape-card-done strong {
+  color: var(--color-heading);
+}
+
+/* Pasos en fila: una fibra horizontal pasa por el centro de los números. */
+.yape-steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.yape-steps::before {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-star) 70%, var(--color-line-strong));
+}
+
+.yape-steps li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.3rem;
+}
+
+.yape-step-number {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.4rem;
+  border: 2px solid var(--color-star);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-heading);
+  font-stretch: var(--display-stretch);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+.yape-steps li:first-child .yape-step-number {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.yape-steps strong {
+  color: var(--color-heading);
+  line-height: 1.25;
+}
+
+.yape-steps li > span:last-child {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+/* Pantallas medianas y móvil: todo en una columna; los pasos en vertical, fibra a la izquierda. */
+@media (max-width: 1024px) {
+  .yape-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .yape-card {
+    padding: 1.75rem 1.25rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .yape-card-head h2 {
+    font-size: 1.5rem;
+  }
+
+  .yape-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .yape-steps::before {
+    top: 1rem;
+    bottom: 1rem;
+    left: calc(1rem - 1px);
+    right: auto;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, var(--color-accent), var(--color-star) 70%, var(--color-line-strong));
+  }
+
+  .yape-steps li {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+    row-gap: 0.1rem;
+  }
+
+  .yape-step-number {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+}
+
+.payment-receipt p > span {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+
+/* El nombre del medio es el título de la tarjeta: más grande que un extremo normal. */
+.payment-slab .fiber-endpoint h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-heading);
+}
+
+.payment-slab .fiber-endpoint > div {
+  gap: 0.35rem;
+}
+
+.payment-fields.fiber-track {
+  flex: 1;
+  gap: 1.1rem;
+  margin-block: 0.75rem;
+  padding-block: 1.25rem;
+}
+
+.payment-fields dt {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.payment-fields dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.2rem 0 0;
+}
+
+.payment-value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-heading);
+}
+
+.payment-slab-pending {
+  color: var(--color-text-muted);
+}
+
+.payment-receipt a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent-text);
+  text-underline-offset: 3px;
+}
+
+.payment-copy {
+  min-height: 2rem;
+  padding: 0.25rem 0.85rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-copy:hover {
+  border-color: var(--color-star);
+}
+
+.payment-copy:focus-visible {
+  outline: 2px solid var(--color-star);
+  outline-offset: 2px;
+}
+
+.payments-help {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2.5rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Libro de reclamaciones: formulario + marco legal ── */
+.legal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+  padding-block: clamp(2.5rem, 6vw, 4rem) clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.legal-layout .legal-form {
+  margin-top: 0;
+}
+
+.legal-aside {
+  padding: 1.75rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+}
+
+.legal-aside h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-heading);
+}
+
+.legal-deadlines {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-line-strong);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.legal-deadlines strong {
+  color: var(--color-heading);
+}
+
+.legal-aside h3 {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.legal-laws li {
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.legal-laws a {
+  display: grid;
+  gap: 0.1rem;
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.legal-laws a:hover .legal-law-name,
+.legal-laws a:focus-visible .legal-law-name {
+  text-decoration: underline;
+}
+
+.legal-law-number {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-accent-text);
+}
+
+.legal-law-name {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.legal-laws p {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.legal-aside-more {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.legal-aside-more a {
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .hero-galaxy {
+    min-height: 0;
+    align-items: flex-start;
+  }
+
+  /* En móvil la galaxia es una banda arriba del titular: el núcleo entra en el primer
+     pantallazo y un velo protege la lectura del texto que la cruza. */
+  .hero-galaxy {
+    padding-top: 0;
+  }
+
+  .hero-galaxy-scene {
+    inset: 0 -30% auto;
+    width: auto;
+    height: 17rem;
+    translate: none;
+  }
+
+  .galaxy-ship {
+    scale: 0.7;
+  }
+
+  .hero-galaxy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, transparent 0 6.5rem, var(--color-bg) 16rem);
+    pointer-events: none;
+  }
+
+  .hero-galaxy-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+    padding-top: 10rem;
+  }
+
+  .hero-showcase {
+    rotate: 0deg;
+  }
+
+  .hero-galaxy-title {
+    font-size: clamp(2.4rem, 11vw, 3.25rem);
+  }
+
+  .hero-galaxy-lead {
+    margin-top: 0.85rem;
+    font-size: 1rem;
+  }
+
+  .hero-galaxy-actions {
+    margin-top: 1.25rem;
+  }
+
+  .services-slabs,
+  .payment-slabs,
+  .legal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .benefits-frieze {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 3.5rem;
+  }
+
+  .benefits-frieze::before {
+    content: none;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+  }
+
+  .process-steps li:nth-child(2n)::before {
+    content: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-galaxy-actions .btn {
+    width: 100%;
+  }
+
+  .benefits-frieze {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .process-steps li {
+    padding-top: 0;
+    padding-left: 4.5rem;
+    min-height: 3.5rem;
+  }
+
+  .process-steps li::before {
+    content: none;
+  }
+
+  .service-slab,
+  .payment-slab {
+    padding: 1.5rem;
+  }
+}
+
+/* ── Resultado de cobertura: entra como una línea de transmisión ── */
+.coverage-result {
+  animation: coverage-transmit 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coverage-result > * {
+  animation: coverage-text 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.18s backwards;
+}
+
+@keyframes coverage-transmit {
+  from {
+    clip-path: inset(0 100% 0 0 round 8px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 8px);
+  }
+}
+
+@keyframes coverage-text {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coverage-result {
+    animation: coverage-text 0.25s linear;
+  }
+
+  .coverage-result > * {
+    animation: none;
+  }
+}
+
+/* ── FAQ: la respuesta se despliega; la flecha gira ── */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.is-open .faq-panel {
+  grid-template-rows: 1fr;
+}
+
+.faq-panel > .faq-answer {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.faq-item.is-open .faq-panel > .faq-answer {
+  opacity: 1;
+  transition-delay: 0.08s;
+}
+
+/* El relleno inferior va dentro del bloque que se recorta para que cerrado mida 0. */
+.faq-panel > .faq-answer {
+  padding-bottom: 0;
+}
+
+.faq-panel > .faq-answer > p {
+  padding-bottom: 1.1rem;
+}
+
+.faq-item button svg {
+  flex: none;
+  transition: rotate 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.is-open button svg {
+  rotate: 90deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-panel,
+  .faq-item button svg {
+    transition: none;
+  }
+}
+
+/* ── Transición entre vistas: el header queda fijo, el contenido cambia con un fundido ── */
+.site-header {
+  view-transition-name: site-header;
+}
+
+::view-transition-old(root) {
+  animation: view-out 0.16s ease-in both;
+}
+
+::view-transition-new(root) {
+  animation: view-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes view-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes view-in {
+  from {
+    opacity: 0;
+    translate: 0 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none;
+  }
+}
+
+/* ── Página no encontrada: salidas claras al contenido principal ── */
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 560px) {
+  .not-found-actions .btn {
+    width: 100%;
+  }
+}
+
+/* ── Nosotros: cómo trabajamos + galería de fotos y videos ── */
+.about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.about-values {
+  display: grid;
+}
+
+.about-values li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.about-values li:first-child {
+  border-top: 1px solid var(--color-line);
+}
+
+.about-values li > span:last-child {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.about-values strong {
+  color: var(--color-heading);
+}
+
+.about-values li > span:last-child > span {
+  color: var(--color-text-muted);
+}
+
+/* Íconos de valores en azul estelar: el magenta queda para acciones y datos en movimiento. */
+.about-value-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 50%;
+  background: var(--color-tint);
+  color: var(--color-star);
+}
+
+.about-value-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.about-gallery {
+  background: var(--color-surface);
+  border-block: 1px solid var(--color-line);
+}
+
+.about-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.about-filter {
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: 999px;
+  background: var(--color-panel);
+  color: var(--color-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    color 0.2s ease-out;
+}
+
+.about-filter:hover {
+  border-color: var(--color-star);
+}
+
+.about-filter[aria-pressed='true'] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.about-filter:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Mosaico en columnas: fotos verticales y horizontales conviven sin recortarse. */
+.about-grid {
+  columns: 3 17rem;
+  column-gap: 1.25rem;
+}
+
+.about-grid li {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+.about-tile {
+  margin: 0;
+  /* clip, no hidden: hidden la volvería contenedor de scroll y el revelado mediría su scroll. */
+  overflow: clip;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-panel);
+  box-shadow: var(--shadow-card);
+}
+
+.about-tile-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--color-surface-alt);
+  cursor: zoom-in;
+}
+
+.about-tile-media img,
+.about-tile-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-tile-media:hover img,
+.about-tile-media:hover video {
+  scale: 1.03;
+}
+
+.about-tile-media:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+.about-tile-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: rgba(3, 11, 51, 0.72);
+  color: #fff;
+  translate: -50% -50%;
+}
+
+.about-tile-play svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.about-tile figcaption {
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.about-empty {
+  color: var(--color-text-muted);
+}
+
+.about-cta-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.about-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Visor: la foto o el video a pantalla completa sobre el espacio profundo. */
+.about-lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: clamp(3.5rem, 6vw, 4.5rem) clamp(1rem, 6vw, 5rem) 1.5rem;
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+
+.about-lightbox::backdrop {
+  background: rgba(1, 4, 20, 0.92);
+}
+
+.about-lightbox[open] {
+  display: grid;
+  place-items: center;
+  animation: lightbox-in 0.25s ease-out;
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.about-lightbox-figure {
+  display: grid;
+  justify-items: center;
+  gap: 0.85rem;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+}
+
+.about-lightbox-figure img,
+.about-lightbox-figure video {
+  max-width: 100%;
+  max-height: calc(100dvh - 10rem);
+  border-radius: var(--radius-md);
+  object-fit: contain;
+}
+
+.about-lightbox-figure figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1rem;
+  max-width: 60ch;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.about-lightbox-count {
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.about-lightbox-close,
+.about-lightbox-nav {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid rgba(143, 180, 255, 0.34);
+  border-radius: 50%;
+  background: rgba(3, 11, 51, 0.8);
+  color: #fff;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out;
+}
+
+.about-lightbox-close:hover,
+.about-lightbox-nav:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.about-lightbox-close:focus-visible,
+.about-lightbox-nav:focus-visible {
+  outline: 2px solid #8fb4ff;
+  outline-offset: 2px;
+}
+
+.about-lightbox-close {
+  top: 1rem;
+  right: 1rem;
+}
+
+.about-lightbox-nav {
+  top: 50%;
+  translate: 0 -50%;
+}
+
+.about-lightbox-nav--prev {
+  left: 1rem;
+}
+
+.about-lightbox-nav--next {
+  right: 1rem;
+}
+
+@media (max-width: 900px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-lightbox-nav {
+    top: auto;
+    bottom: 1rem;
+    translate: none;
+  }
+
+  .about-lightbox-figure img,
+  .about-lightbox-figure video {
+    max-height: calc(100dvh - 12rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-tile-media img,
+  .about-tile-media video {
+    transition: none;
+  }
+
+  .about-lightbox[open] {
+    animation: none;
+  }
+}
+
+
+/* ── Movimiento de lo nuevo (Yape Servicios, Nosotros, copiar) ── */
+
+/* Copiar: confirma la acción con un destello magenta breve. */
+.payment-copy {
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    color 0.2s ease-out;
+}
+
+.payment-copy[aria-label$='copiado'] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Visor: cada foto nueva entra con un fundido y una leve escala. */
+.about-lightbox-figure img,
+.about-lightbox-figure video {
+  animation: lightbox-media-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes lightbox-media-in {
+  from {
+    opacity: 0;
+    scale: 0.97;
+  }
+}
+
+/* Al cambiar de filtro, las tarjetas entran en orden (retraso acotado). */
+.about-grid li {
+  animation: about-tile-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.about-grid li:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.about-grid li:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.about-grid li:nth-child(n + 4) {
+  animation-delay: 0.15s;
+}
+
+@keyframes about-tile-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Galería: cada foto se descubre de arriba hacia abajo mientras entra en pantalla (el recorte va
+       en el contenedor, así el zoom de hover de la imagen sigue funcionando). */
+    .about-tile-media {
+      animation: photo-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+}
+
+/* Ambos extremos explícitos: de `inset()` a `none` no se interpola (saltaría de golpe). */
+@keyframes photo-reveal {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Yape Servicios está en el primer pantallazo: la fibra se dibuja al cargar (o al volver a
+   entrar en pantalla) y cada número se enciende cuando la luz lo alcanza. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-live='true'] .yape-steps::before {
+    transform-origin: left;
+    animation: fiber-draw 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+
+  [data-live='true'] .yape-step-number {
+    animation: fiber-node 0.4s ease-out both;
+  }
+
+  [data-live='true'] .yape-steps li:nth-child(1) .yape-step-number {
+    animation-delay: 0.2s;
+  }
+  [data-live='true'] .yape-steps li:nth-child(2) .yape-step-number {
+    animation-delay: 0.5s;
+  }
+  [data-live='true'] .yape-steps li:nth-child(3) .yape-step-number {
+    animation-delay: 0.8s;
+  }
+  [data-live='true'] .yape-steps li:nth-child(4) .yape-step-number {
+    animation-delay: 1.05s;
+  }
+
+  @media (max-width: 720px) {
+    [data-live='true'] .yape-steps::before {
+      transform-origin: top;
+      animation-name: fiber-draw-down;
+    }
+  }
+}
+
+@keyframes fiber-draw-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-grid li,
+  .about-lightbox-figure img,
+  .about-lightbox-figure video {
+    animation: none;
+  }
+}

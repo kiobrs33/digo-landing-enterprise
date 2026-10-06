@@ -1,0 +1,45 @@
+{
+  "site": "EMPRESAS",
+  "company": {
+    "name": "Digo Empresas",
+    "shortName": "Digo Empresas",
+    "tagline": "Conectividad dedicada para tu empresa",
+    "legalName": "DIGO TELECOM S.A.C.",
+    "ruc": "20610702369",
+    "address": "Calle Ambrosio Vucetich 130, Parque Industrial, Arequipa",
+    "email": "team@digo.net.pe",
+    "phone": "+5117012341",
+    "phoneDisplay": "(01) 701-2341",
+    "mobile": "+51925521741",
+    "mobileDisplay": "925 521 741",
+    "whatsapp": "5117012341",
+    "whatsappDisplay": "(01) 701-2341",
+    "advisorName": "Yudi C.",
+    "website": "digo.net.pe",
+    "logo": {
+      "url": "http://localhost:4110/uploads/seed-digo-logo-256.png",
+      "width": 256,
+      "height": 256,
+      "alt": "Logo de Digo Telecom"
+    }
+  },
+  "plans": [],
+  "carousel": [],
+  "social": [
+    {
+      "id": "fc6ea639-bcc1-468c-8576-05eff0388b4e",
+      "network": "FACEBOOK",
+      "label": "Facebook",
+      "url": "https://www.facebook.com/people/Digo-Telecom/61593841747060/",
+      "icon": null
+    },
+    {
+      "id": "897081e6-5988-43d0-bcc3-b3348e6ba203",
+      "network": "TIKTOK",
+      "label": "TikTok",
+      "url": "https://www.tiktok.com/@digoarequipa",
+      "icon": null
+    }
+  ],
+  "aboutPhotos": []
+}

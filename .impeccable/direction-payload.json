@@ -1,0 +1,72 @@
+{
+  "title": "Mundo visual — Digo Telecom",
+  "question": "El roll asignó Sillar Arequipeño. ¿Lo confirmamos, elegimos un alterno, pedimos re-roll, o tomamos el estándar de categoría?",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Sillar Arequipeño",
+      "kicker": "THE ROLL",
+      "lineage": "Arquitectura de sillar volcánico — Arequipa",
+      "thesis": "El ISP local se siente edificado en piedra blanca: permanente, arequipeño y confiable, no como landing genérica de telecom nacional.",
+      "palette": ["#ffffff", "#041c7b", "#de087e", "#e8e4df"],
+      "materials": ["piedra sillar mate", "marcos coloniales navy", "acento magenta tipo banderín"],
+      "viewport": "Header navy; hero blanco texturizado con titular serif grande, carrusel en marco de ventana colonial a la derecha, CTAs magenta.",
+      "risk": "Puede sentirse patrimonial si los CTAs y el carrusel no mantienen urgencia comercial.",
+      "sketch": ".impeccable/sketches/assigned.webp"
+    },
+    {
+      "id": "challenger-catalog",
+      "label": "Catálogo de Mesas",
+      "lineage": "Catálogo doujin / plano de salón numerado",
+      "thesis": "Los planes y distritos se leen como códigos de mesa en un plano de evento local — escaneable, denso, sin hero vacío.",
+      "case": "Fusiona bien: grid de planes con códigos de distrito (Socabaya, Centro) y mapa como plano de salón.",
+      "palette": ["#ffffff", "#041c7b", "#de087e", "#f4f4f4"],
+      "materials": ["newsprint", "tinta única + spot magenta"],
+      "viewport": "Hero como grilla numerada de planes; mapa enlazado por código; navegación por celdas marcables.",
+      "risk": "Demasiado denso para hogares menos técnicos si no hay jerarquía clara.",
+      "sketch": ".impeccable/sketches/challenger-catalog.webp",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-doujin-event-catalog-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/pop-culture-shelf-doujin-event-catalog.webp"
+    },
+    {
+      "id": "challenger-darkroom",
+      "label": "Revelado en Cuarto Oscuro",
+      "lineage": "Cuarto oscuro fotográfico bajo safelight",
+      "thesis": "La velocidad simétrica 'emerge' como imagen en revelado — prueba técnica dramatizada, no claim vacío.",
+      "case": "Fusiona parcial: hero con animación de revelado de Mbps simétricos; riesgo de oscurecer la paleta blanca obligatoria.",
+      "palette": ["#fff8f0", "#041c7b", "#de087e", "#c4956a"],
+      "materials": ["safelight ámbar sutil", "plata emergente", "tray enamel"],
+      "viewport": "Hero split: copy a la izquierda; panel derecho donde números de velocidad emergen como print revelándose.",
+      "risk": "El ámbar compite con magenta/navy; requiere adaptación cuidadosa al blanco #fff del brief.",
+      "sketch": ".impeccable/sketches/challenger-darkroom.webp",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay.webp"
+    },
+    {
+      "id": "challenger-ebru",
+      "label": "Ebru de Cobertura",
+      "lineage": "Ebru — pigmento flotante combado en baño",
+      "thesis": "Los polígonos de cobertura se forman como anillos de pigmento que se empujan — mapa vivo, irreversible, local.",
+      "case": "Fusiona mal para compliance legal: demasiado artístico para footer INDECOPI/OSIPTEL y formularios normativos.",
+      "palette": ["#ffffff", "#041c7b", "#de087e", "#2a9d8f"],
+      "materials": ["pigmento flotante", "anillos concéntricos", "lift único"],
+      "viewport": "Mapa interactivo como baño de color; distritos aparecen al combar pigmento magenta sobre navy.",
+      "risk": "Compromete claridad B2B y páginas legales; mejor como micro-interacción del mapa, no mundo completo.",
+      "sketch": ".impeccable/sketches/challenger-ebru.webp",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/medium-native-ebru-floated-pigment.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "steer": true,
+  "canonCard": {
+    "label": "Estándar de categoría ISP",
+    "thesis": "Lo que todo ISP peruano muestra: hero con Mbps, tres tarjetas de plan, mapa, testimonios — ejecutado impecablemente.",
+    "palette": ["#ffffff", "#041c7b", "#de087e"],
+    "materials": ["cards flotantes", "gradientes tech", "iconografía genérica"],
+    "viewport": "Hero centrado con velocidad grande, fila de 3 planes, secciones apiladas predecibles.",
+    "risk": "Indistinguible de Movistar/Claro/Mi Fibra; pierde posicionamiento local arequipeño.",
+    "sketch": ".impeccable/sketches/canon.webp"
+  }
+}
